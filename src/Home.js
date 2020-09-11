@@ -104,6 +104,10 @@ function Home() {
             </table>
           </div>
         </section>
+
+        <section>
+          <div></div>
+        </section>
       </body>
     </div>
   );
