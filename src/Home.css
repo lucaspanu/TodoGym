@@ -29,6 +29,8 @@ h1 {
   border-radius: 30px;
 }
 
+/* Tarjetas */
+
 .contenedor-tarjetas {
   display: flex;
   justify-content: center;
@@ -63,4 +65,56 @@ h1 {
 
 .tarjeta h3 {
   font-style: italic;
+}
+
+/* Tabla de Horarios */
+
+table {
+  width: 100%;
+  text-align: center;
+}
+
+#classes {
+  background: #f3f3f3;
+  margin-top: -200px;
+  padding-top: 250px;
+}
+
+.blanco,
+th {
+  background: #fff;
+}
+
+th {
+  padding: 20px 0px;
+  font-style: italic;
+}
+
+.gris {
+  background: #e0e0e0;
+}
+
+.negrita {
+  font-weight: bold;
+}
+
+.horario {
+  font-style: italic;
+}
+
+.contenedor {
+  width: 90%;
+  max-width: 1480px;
+  margin: auto;
+}
+
+#classes h2 {
+  text-align: center;
+  font-size: 44px;
+  font-style: italic;
+  margin: 10px 0px;
+}
+
+#classes p {
+  margin: 12px 0px;
 }
