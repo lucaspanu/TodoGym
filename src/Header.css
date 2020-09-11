@@ -6,7 +6,7 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.contenedor {
+.contenedor-header {
   width: 90%;
   max-width: 1280px;
   margin: auto;
@@ -21,7 +21,7 @@ a {
 }
 
 header {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .menu {

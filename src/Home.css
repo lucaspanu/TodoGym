@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap");
+
+header {
+  background-image: url(./assets/ImagenPortada.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.titular {
+  padding-top: 31vh;
+  text-align: center;
+  padding-bottom: 38vh;
+}
+
+h1 {
+  color: black;
+  font-size: 80px;
+  font-style: italic;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.titular a {
+  background: black;
+  color: #c2e71f;
+  padding: 15px 35px;
+  border-radius: 30px;
+}
+
+.contenedor-tarjetas {
+  display: flex;
+  justify-content: center;
+}
+
+.tarjeta {
+  text-align: center;
+  word-wrap: break-word;
+  box-shadow: -1px 0px 5px #0000001f;
+  margin: 0 20px;
+  width: 28%;
+  margin-top: -100px;
+  background-color: white;
+  padding: 40px 0px;
+  border-radius: 6px;
+}
+
+.contenedor-tarjetas img {
+  width: 150px;
+}
+
+.tarjeta p {
+  font-size: 15px;
+  margin: 5px 0px;
+}
+
+.tarjeta a {
+  color: #000;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.tarjeta h3 {
+  font-style: italic;
+}
