@@ -8,6 +8,9 @@ import Header from "./Header";
 import Home2 from "./Home2";
 import Contact from "./Contact";
 import NoMatch from "./NoMatch";
+import Layout from "./components/Layout";
+import NavigationBar from "./components/NavigationBar";
+import Jumbotron from "./components/Jumbotron";
 
 function App() {
   return (
@@ -16,13 +19,16 @@ function App() {
       <Home /> */}
 
       <React.Fragment>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home2} />
-            <Route exact path="/Contact" component={Contact} />
-            <Route component={NoMatch} />
-          </Switch>
-        </Router>
+        <NavigationBar />
+        <Layout>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Home2} />
+              <Route exact path="/contact" component={Contact} />
+              <Route component={NoMatch} />
+            </Switch>
+          </Router>
+        </Layout>
       </React.Fragment>
     </div>
   );
