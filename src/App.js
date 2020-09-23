@@ -11,6 +11,7 @@ import NoMatch from "./NoMatch";
 import Layout from "./components/Layout";
 import NavigationBar from "./components/NavigationBar";
 import Jumbotron from "./components/Jumbotron";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           </Router>
         </Layout>
       </React.Fragment>
+      <Footer />
     </div>
   );
 }
