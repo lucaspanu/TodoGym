@@ -1,13 +1,13 @@
 import React from "react";
+import "../App.css";
 import { Button } from "./Button";
 import "./HeroSection.css";
-import imagenPortada from "../assets/Img/ImagenPortada2.jpg";
 
 function HeroSection() {
   return (
     <div className="hero-container">
       <h1>COMIENZA A ENTRENAR</h1>
-      <p>¿Que estar esperando?</p>
+      <p>¿Que estas esperando?</p>
       <div className="hero-btns">
         <Button
           className="btns"
@@ -15,6 +15,13 @@ function HeroSection() {
           buttonSize="btn--large"
         >
           INGRESAR AHORA
+        </Button>
+        <Button
+          className="btns"
+          buttonStyle="btn--primary"
+          buttonSize="btn--large"
+        >
+          REGISTRARSE
         </Button>
       </div>
     </div>

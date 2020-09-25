@@ -8,6 +8,7 @@
   position: sticky;
   top: 0;
   z-index: 999;
+  margin-left: -60px;
 }
 
 .navbar-container {
@@ -78,6 +79,10 @@
 }
 
 @media screen and (max-width: 960px) {
+  .navbar {
+    position: relative;
+  }
+
   .NavbarItems {
     position: relative;
   }
@@ -124,9 +129,8 @@
 
   .navbar-logo img {
     position: absolute;
-    margin: -56px;
+    margin: -54px;
     top: 0;
-    left: 0;
     transform: translate(25%, 50%);
   }
 
