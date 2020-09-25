@@ -1,7 +1,34 @@
 .Banner {
-  align-items: center;
-  background-color: #0f4c75;
   display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: #0f4c75;
   height: 300px;
   width: 100%;
+  position: relative;
+}
+
+.Banner h2 {
+  color: #bbe1fa;
+  margin-top: 15px;
+}
+.Banner h3 {
+  color: #bbe1fa;
+  margin-top: 15px;
+}
+
+.Container {
+  margin: 150px;
+}
+
+.Banner button {
+  background-color: #bbe1fa;
+  color: #1b262c;
+  position: relative;
+  margin-top: 15px;
+  width: 150px;
+  padding: 16px 32px;
+  border-radius: 46px;
+  border: none;
 }
