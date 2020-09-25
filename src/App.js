@@ -12,6 +12,7 @@ import Layout from "./components/Layout";
 import NavigationBar from "./components/NavigationBar";
 import Jumbotron from "./components/Jumbotron";
 import Footer from "./components/Footer";
+import Banner from "./components/Banner";
 
 function App() {
   return (
@@ -30,8 +31,9 @@ function App() {
             </Switch>
           </Router>
         </Layout>
+        <Banner />
+        <Footer />
       </React.Fragment>
-      <Footer />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 .footer {
   align-items: center;
-  background-color: #222222;
+  background-color: #1b262c;
   display: flex;
   height: 100px;
   width: 100%;
@@ -11,6 +11,7 @@
   cursor: pointer;
   font-size: 14px;
   padding-left: 30px;
+  margin-right: 40px;
   text-decoration: none;
 }
 
