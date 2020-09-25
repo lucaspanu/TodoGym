@@ -1,11 +1,33 @@
 import React from "react";
+import "../../components/Contact.css";
+import Footer from "../Footer";
 
 function Contact() {
   return (
     <div>
-      <h2>Contact Us</h2>
-      <p>This is an example of a simple HTML page with one paragraph.</p>
-      <p>This is an example of a simple HTML page with one paragraph.</p>
+      <div className="Container">
+        <div className="Cards">
+          <h2>Contact Us</h2>
+          <p>Mail:</p>
+        </div>
+
+        <div className="Cards">
+          <h2>Sede Capital</h2>
+          <p>Direccion:</p>
+          <p>Telefono:</p>
+        </div>
+        <div className="Cards">
+          <h2>Sede Yerba Buena</h2>
+          <p>Direccion:</p>
+          <p>Telefono:</p>
+        </div>
+        <div className="Cards">
+          <h2>Sede La Pampa</h2>
+          <p>Direccion:</p>
+          <p>Telefono:</p>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 }
