@@ -47,14 +47,6 @@
   transition: 0.3s ease-out;
 }
 
-.footer-email-form h2 {
-  margin-bottom: 2rem;
-}
-
-.footer-input::placeholder {
-  color: #b1b1b1;
-}
-
 /* Social Icons */
 .social-icon-link {
   color: #fff;
