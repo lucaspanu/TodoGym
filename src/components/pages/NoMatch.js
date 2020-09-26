@@ -1,9 +1,12 @@
 import React from "react";
+import Error404 from "../Error404";
+
+// Paguina 404 - Muestra cuando una paguina no existe
 
 function NoMatch() {
   return (
     <div>
-      <h2>No Match</h2>
+      <Error404 />
     </div>
   );
 }
