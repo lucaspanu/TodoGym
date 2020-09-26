@@ -81,6 +81,7 @@
 @media screen and (max-width: 960px) {
   .navbar {
     position: relative;
+    margin-left: 0px;
   }
 
   .NavbarItems {
