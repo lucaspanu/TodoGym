@@ -25,7 +25,7 @@
 
 .Cards {
   height: 300px;
-  width: 300px;
+  width: 100%;
   padding: 20px;
   margin: 15px;
   background-color: rgba(187, 225, 250, 0.22);
