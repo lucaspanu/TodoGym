@@ -10,40 +10,40 @@ import img5 from "../assets/Img/img-5.jpg";
 function Cards() {
   return (
     <div className="cards">
-      <h1>Check out these EPIC Destinations!</h1>
+      <h1>¡Prueba nuestras actividades!</h1>
       <div className="cards__container">
         <div className="cards__wrapper">
           <ul className="cards__items">
             <CardItem
               src={img1}
-              text="Explore the hidden waterfall deep inside the Amazon Jungle"
-              label="Adventure"
+              text="Funcional es un entrenamiento personal muy efectivo"
+              label="Funcional"
               path="/"
             />
             <CardItem
               src={img2}
-              text="Travel through the Islands of Bali in a Private Cruise"
-              label="Luxury"
+              text="Un sistema de entrenamiento de fuerza y acondicionamiento"
+              label="Crossfit"
               path="/"
             />
           </ul>
           <ul className="cards__items">
             <CardItem
               src={img3}
-              text="Set Sail in the Atlantic Ocean visiting Uncharted Waters"
-              label="Mystery"
+              text="Es un baño de vapor o sudoración que se realiza en un recinto a muy alta temperatura"
+              label="Sauna"
               path="/"
             />
             <CardItem
               src={img4}
-              text="Experience Football on Top of the Himilayan Mountains"
-              label="Adventure"
+              text="Disfruta de todas las actividades de natacion"
+              label="Piscina"
               path="/"
             />
             <CardItem
               src={img5}
-              text="Ride through the Sahara Desert on a guided camel tour"
-              label="Adrenaline"
+              text="Busca una nutritiva comida para acompañar tu entrenamiento"
+              label="Restaurante"
               path="/"
             />
           </ul>
