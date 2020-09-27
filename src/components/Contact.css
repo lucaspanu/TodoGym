@@ -8,34 +8,31 @@
   object-fit: contain;
 }
 .Container_General {
-  flex-direction: row;
-  position: relative;
+  flex-direction: column;
+  /* position: relative; */
+  display: flex;
   margin: 20px;
-  /* height: 500px; */
 }
 .Cards_General {
   height: 100%;
   width: 500px;
   padding: 30px;
-  /* margin: 15px, 0, 15, 0; */
   background-color: rgba(187, 225, 250, 0.22);
 }
-
-.Container_Cards {
-  flex-direction: column;
-  display: flex;
-  /* position: relative; */
-  width: 50%;
-  min-width: 530px;
-}
-
 .Cards {
   height: 300px;
   width: 100%;
   padding: 20px;
   margin: 15px;
   background-color: rgba(187, 225, 250, 0.22);
-  /* position: absolute; */
+}
+
+.Container_Cards {
+  flex-direction: column;
+  display: flex;
+  /* width: 50%; */
+  min-width: 530px;
+  margin: 15px;
 }
 
 .Cards,
