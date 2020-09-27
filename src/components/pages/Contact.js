@@ -8,7 +8,7 @@ function Contact() {
       <div className="Container">
         <div className="Container_General">
           <div className="Cards_General">
-            <h2>Contact Us</h2>
+            <h2>Contactanos</h2>
             <p>Mail:</p>
           </div>
         </div>
