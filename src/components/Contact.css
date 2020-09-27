@@ -1,6 +1,6 @@
 .Container {
-  background: url(../assets/Img/img-4.jpg) center center/cover no-repeat;
-  height: 100vh;
+  background: url(../assets/Img/fondo-contacto-1.jpeg) center center/cover
+    no-repeat;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -11,7 +11,7 @@
   flex-direction: column;
   /* position: relative; */
   display: flex;
-  margin: 20px;
+  padding: 30px;
 }
 .Cards_General {
   height: 100%;
@@ -22,7 +22,7 @@
 .Cards {
   height: 300px;
   width: 100%;
-  padding: 20px;
+  padding: 30px;
   margin: 15px;
   background-color: rgba(187, 225, 250, 0.22);
 }
