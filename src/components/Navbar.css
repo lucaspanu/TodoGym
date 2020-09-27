@@ -81,6 +81,7 @@
 @media screen and (max-width: 960px) {
   .navbar {
     position: relative;
+    margin-left: 0px;
   }
 
   .NavbarItems {
@@ -130,6 +131,7 @@
   .navbar-logo img {
     position: absolute;
     margin: -54px;
+    left: -40px;
     top: 0;
     transform: translate(25%, 50%);
   }

@@ -9,11 +9,11 @@ function Footer() {
       <div className="footer-links">
         <div className="footer-link-wrapper">
           <div className="footer-link-items">
-            <h2>Info</h2>
-            <Link to="/sign-up">Contacto</Link>
-            <Link to="/">Precios</Link>
-            <Link to="/">Politica de privacidad</Link>
-            <Link to="/">Terminos de servicio</Link>
+            <h2>Informacion</h2>
+            <Link to="/contacto">Contacto</Link>
+            <Link to="/precios">Precios</Link>
+            <Link to="/politicas">Politica de privacidad</Link>
+            <Link to="/terminos">Terminos de servicio</Link>
           </div>
           <div className="footer-link-items">
             <h2>Sedes</h2>
@@ -32,10 +32,18 @@ function Footer() {
           </div>
           <div className="footer-link-items">
             <h2>Social </h2>
-            <Link to="/">Instagram</Link>
-            <Link to="/">Facebook</Link>
-            <Link to="/">Youtube</Link>
-            <Link to="/">Twitter</Link>
+            <Link to="/" target="_blank">
+              Instagram
+            </Link>
+            <Link to="/" target="_blank">
+              Facebook
+            </Link>
+            <Link to="/" target="_blank">
+              Youtube
+            </Link>
+            <Link to="/" target="_blank">
+              Twitter
+            </Link>
           </div>
         </div>
       </div>
