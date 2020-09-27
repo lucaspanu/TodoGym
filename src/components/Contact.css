@@ -3,24 +3,30 @@
   height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   object-fit: contain;
 }
+.Container_General {
+  flex-direction: row;
+  position: relative;
+  margin: 20px;
+  /* height: 500px; */
+}
 .Cards_General {
-  height: 300px;
-  padding: 20px;
-  margin: 15px;
+  height: 100%;
+  width: 500px;
+  padding: 30px;
+  /* margin: 15px, 0, 15, 0; */
   background-color: rgba(187, 225, 250, 0.22);
 }
 
-.Container_General {
-  flex-direction: column;
-  width: 100%;
-}
-
 .Container_Cards {
+  flex-direction: column;
   display: flex;
+  /* position: relative; */
+  width: 50%;
+  min-width: 530px;
 }
 
 .Cards {
@@ -29,6 +35,7 @@
   padding: 20px;
   margin: 15px;
   background-color: rgba(187, 225, 250, 0.22);
+  /* position: absolute; */
 }
 
 .Cards,
