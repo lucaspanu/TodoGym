@@ -1,9 +1,12 @@
 import React from "react";
+import Footer from "../Footer";
+import PreciosTabla from "../PreciosTabla";
 
 function Precios() {
   return (
     <div>
-      <h1>Precios</h1>
+      <PreciosTabla />
+      <Footer />
     </div>
   );
 }
