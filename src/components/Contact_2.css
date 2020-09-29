@@ -1,6 +1,6 @@
-.Container_General {
-  display: flex;
-  justify-content: center;
+.container_general {
+  background: url(../assets/Img/fondo-contacto-6.jpeg) center center/cover
+    no-repeat;
 }
 
 .container_title {
@@ -8,7 +8,6 @@
   flex-direction: column;
   justify-content: center;
   padding: 40px;
-  margin-top: 15px;
 }
 
 .container_title_principal {
@@ -20,7 +19,13 @@
   display: flex;
   justify-content: center;
 }
-
+h1,
+h2,
+h5 {
+  color: #ffffff;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
 .social_items {
   display: flex;
   justify-content: center;
@@ -32,4 +37,17 @@
   margin: 15px;
   width: 50px;
   height: 50px;
+}
+
+.container_sedes {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding-bottom: 40px;
+}
+.item_sedes {
+  background-color: cadetblue;
+  margin: 15px;
+  width: 250px;
+  height: 250px;
 }
