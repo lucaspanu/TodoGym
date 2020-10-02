@@ -67,6 +67,10 @@ h5 {
 .youtube :hover {
   color: red;
 }
+
+.instagram :hover {
+  color: rgb(190, 75, 219);
+}
 .container_sedes {
   display: flex;
   justify-content: center;
