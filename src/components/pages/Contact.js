@@ -1,5 +1,6 @@
 import React from "react";
 import "../../components/Contact_2.css";
+// import icono from "../../assets/Iconos/Sin título-1.svg";
 import icono from "../../assets/Iconos/map-pointer.png";
 import Footer from "../Footer";
 import { Link } from "react-router-dom";
@@ -36,11 +37,6 @@ function Contact() {
       </div>
       <div className="container_sedes">
         <div className="item_sedes">
-          {/* <div className="center">
-            <div className="pointer"></div>
-            <div className="shadow"></div>
-          </div> */}
-
           <img className="sede_icon" src={icono} alt="icono" />
           <div>
             <h2>Capital</h2>
