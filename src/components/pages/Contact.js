@@ -20,7 +20,7 @@ function Contact() {
       <div className="social_items">
         <div className="image_social">
           <Link to="/" target="_blank" className="social-icon facebook">
-            <i class="fab fa-facebook" />
+            <i class="fab fa-facebook-square " />
           </Link>
         </div>
         <div className="image_social">
