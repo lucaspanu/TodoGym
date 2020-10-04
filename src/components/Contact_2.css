@@ -1,6 +1,11 @@
 .container_general {
   background: url(../assets/Img/fondo-contacto-6.jpeg) center center/cover
     no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
 }
 
 .container_title {
@@ -98,6 +103,7 @@ h2 {
   color: #000;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  opacity: 0.75;
 }
 
 .item_sedes:hover {
