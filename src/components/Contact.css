@@ -1,0 +1,43 @@
+.Container {
+  background: url(../assets/Img/fondo-contacto-5.jpeg) center center/cover
+    no-repeat;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+}
+.Container_General {
+  flex-direction: column;
+  /* position: relative; */
+  display: flex;
+  padding: 30px;
+}
+.Cards_General {
+  height: 100%;
+  width: 500px;
+  padding: 30px;
+  background-color: rgba(187, 225, 250, 0.22);
+}
+.Cards {
+  height: 300px;
+  width: 100%;
+  padding: 30px;
+  margin: 15px;
+  background-color: rgba(187, 225, 250, 0.22);
+}
+
+.Container_Cards {
+  flex-direction: column;
+  display: flex;
+  /* width: 50%; */
+  min-width: 530px;
+  margin: 15px;
+}
+
+.Cards,
+.Cards_General > h2,
+p {
+  color: #ffffff;
+  font-family: "PT Sans", sans-serif;
+}
