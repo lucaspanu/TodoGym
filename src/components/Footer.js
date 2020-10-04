@@ -62,7 +62,7 @@ function Footer() {
               target="_blank"
               aria-label="Facebook"
             >
-              <i class="fab fa-facebook-f" />
+              <i className="fab fa-facebook-f" />
             </Link>
             <Link
               className="social-icon-link instagram"
@@ -78,7 +78,7 @@ function Footer() {
               target="_blank"
               aria-label="Youtube"
             >
-              <i class="fab fa-youtube" />
+              <i className="fab fa-youtube" />
             </Link>
             <Link
               className="social-icon-link twitter"

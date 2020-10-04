@@ -7,7 +7,8 @@
   padding: 40px;
   background-color: #fff;
   opacity: 0.9;
-  width: calc(80% - 150px);
+  width: calc(80% - 0px);
+  max-width: 1050px;
   height: 100%;
   border-radius: 10px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -20,7 +21,8 @@
 }
 
 .container_form h2 {
-  margin-bottom: 20px;
+  color: black;
+  margin-bottom: 30px;
 }
 
 .contact_form {
@@ -43,7 +45,7 @@
   margin: 30px 0 35px 0;
 }
 
-input {
+.inputBox input {
   width: 100%;
   border: none;
   border-bottom: 1px solid #777;
@@ -61,7 +63,7 @@ input {
   width: 100%;
 }
 
-textarea {
+.MessageBox textarea {
   width: 100%;
   height: 200px;
   resize: none;
@@ -76,7 +78,8 @@ textarea {
   align-items: center;
 }
 
-.btn--outline {
+/* Boton de Enviar */
+.container_form .btn--outline {
   background-color: transparent;
   color: #3282b8;
   padding: 8px 20px;
@@ -85,9 +88,57 @@ textarea {
   float: right;
 }
 
-.btn--large:hover {
+.container_form .btn--medium:hover {
   transition: all 0.3s ease-out;
-  background: #fff;
-  color: #3282b8;
+  background: #3282b8;
+  color: #fff;
   transition: 250ms;
+}
+
+@media screen and (max-width: 900px) {
+  .contact_form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .form_datos_contacto {
+    width: 90%;
+  }
+  .form_MessageBox {
+    width: 90%;
+  }
+  .foot_form {
+    align-self: center;
+    width: 90%;
+  }
+  .container_form .btn--medium {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container_form {
+    width: 100%;
+    align-items: center;
+  }
+  .form_datos_contacto {
+    width: 100%;
+  }
+  .form_MessageBox {
+    width: 100%;
+  }
+  .foot_form {
+    width: 100%;
+  }
+  .container_form h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .container_form h2 {
+    font-size: 1.2rem;
+  }
+  .container_form {
+    padding: 40px 20px;
+  }
 }

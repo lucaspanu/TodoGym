@@ -8,6 +8,7 @@ import Contact from "./components/pages/Contact";
 import Login from "./components/pages/Login";
 import NoMatch from "./components/pages/NoMatch";
 import Precios from "./components/pages/Precios";
+import Sedes from "./components/pages/Sedes";
 
 //Elementos
 import NavBar from "./components/Navbar";
@@ -20,6 +21,7 @@ function App() {
           <NavBar />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/sedes" component={Sedes} />
             <Route exact path="/contacto" component={Contact} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/precios" component={Precios} />
