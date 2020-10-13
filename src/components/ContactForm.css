@@ -86,6 +86,7 @@
   border: 1px solid var(--primary);
   transition: all 0.3s ease-out;
   float: right;
+  border-radius: 10px;
 }
 
 .container_form .btn--outline:hover {
