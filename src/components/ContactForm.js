@@ -2,11 +2,17 @@ import React from "react";
 import "./ContactForm.css";
 import './Button.css'
 import emailjs from 'emailjs-com'
-import { Button } from "./Button";
 
-function ContactForm() {
+class ContactForm extends React.Component{
 
-  function sendMail(e){
+  handleChange = (e) => {
+    console.log({value: e.target.value})
+  }
+
+
+
+  handleSubmit = (e) => {
+
     e.preventDefault();
 
     emailjs.sendForm('gmail', 'template_4tdd57e', e.target, 'user_qIJzZjoZMlupoiS5f4Ta4')
@@ -17,14 +23,16 @@ function ContactForm() {
       });
 
       e.target.reset()
-  }
+      alert("Gracias por tu mensaje.")
 
-  return (
+      }
+  render() {
+     return (
     <div className="container_form">
       <div className="form_title">
         <h2>CONTACTANOS</h2>
       </div>
-      <form onSubmit={sendMail}>
+      <form className="form-contact" onSubmit={this.handleSubmit.bind(this)}>
         <div className="contact_form">
           <div className="form_datos_contacto">
             <div className="inputBox">
@@ -39,7 +47,7 @@ function ContactForm() {
           </div>
           <div className="form_MessageBox">
             <div className="MessageBox">
-              <textarea
+              <textarea onChange={this.handleChange}
                 name="message"
                 id=""
                 cols="30"
@@ -49,14 +57,15 @@ function ContactForm() {
             </div>
           </div>
         </div>
-      </form>
       <div className="foot_form">
-        <button type="submit">
+        <button className="btn--outline">
           ENVIAR
         </button>
       </div>
+      </form>
     </div>
   );
+}
 }
 
 export default ContactForm;

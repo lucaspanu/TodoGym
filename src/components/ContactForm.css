@@ -88,7 +88,7 @@
   float: right;
 }
 
-.container_form .btn--medium:hover {
+.container_form .btn--outline:hover {
   transition: all 0.3s ease-out;
   background: #3282b8;
   color: #fff;
