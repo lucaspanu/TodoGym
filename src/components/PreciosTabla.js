@@ -6,7 +6,7 @@ function PreciosTabla() {
   return (
     <>
       <div id="generic_price_table">
-        <section>
+        <section className="planes_suscripcion">
           <div class="container">
             <div class="row">
               <div class="col-md-12">

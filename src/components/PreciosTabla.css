@@ -9,6 +9,10 @@ body {
   background-color: #f0eded;
 }
 
+.planes_suscripcion {
+  padding: 0;
+}
+
 /*PRICE COLOR CODE START*/
 #generic_price_table .generic_content {
   background-color: #fff;
