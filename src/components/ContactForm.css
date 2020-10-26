@@ -86,9 +86,10 @@
   border: 1px solid var(--primary);
   transition: all 0.3s ease-out;
   float: right;
+  border-radius: 10px;
 }
 
-.container_form .btn--medium:hover {
+.container_form .btn--outline:hover {
   transition: all 0.3s ease-out;
   background: #3282b8;
   color: #fff;
