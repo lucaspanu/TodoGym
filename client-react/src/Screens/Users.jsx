@@ -66,7 +66,6 @@ function App({ history }) {
           </div>
         </div>
       </div>
-      ;
     </div>
   );
 }

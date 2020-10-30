@@ -151,7 +151,6 @@ const Admin = ({ history }) => {
           ></div>
         </div>
       </div>
-      ;
     </div>
   );
 };

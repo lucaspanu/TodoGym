@@ -150,7 +150,6 @@ const Private = ({ history }) => {
           ></div>
         </div>
       </div>
-      ;
     </div>
   );
 };
