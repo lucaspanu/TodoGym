@@ -29,12 +29,14 @@ if (process.env.NODE_ENV === 'development') {
     //cors its allow to deal with react for localhost at port 3000 without any problem
 }
 
-//load all routes
-
+// Load routes
 const authRouter = require('./routes/auth.route')
+const userRouter = require('./routes/user.route')
+
 
 // Use Routes
 app.use('/api', authRouter)
+app.use('/api', userRouter)
 
 app.use((req, res) => {
     res.status(404).json({
@@ -43,7 +45,7 @@ app.use((req, res) => {
     })
 })
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 5000
 
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);

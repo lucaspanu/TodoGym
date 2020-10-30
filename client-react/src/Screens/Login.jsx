@@ -139,7 +139,7 @@ const Login = ({ history }) => {
                   )}
                 ></GoogleLogin>
                 <FacebookLogin
-                  appId={`${process.env.REACT_APP_FACEBOOK_CLIENT}`}
+                  appId={`${process.env.REACT_APP_FACEBOOK_CLIENT}`} //FACEBOOK APP ID
                   autoLoad={false}
                   callback={responseFacebook}
                   render={renderProps => (
