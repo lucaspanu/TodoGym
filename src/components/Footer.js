@@ -9,41 +9,21 @@ function Footer() {
       <div className="footer-links">
         <div className="footer-link-wrapper">
           <div className="footer-link-items">
-            <h2>Informacion</h2>
-            <Link to="/contacto">Contacto</Link>
-            <Link to="/precios">Precios</Link>
-            <Link to="/politicas">Politica de privacidad</Link>
-            <Link to="/terminos">Terminos de servicio</Link>
+          <Link to="/contacto">Contacto</Link>
+            
           </div>
           <div className="footer-link-items">
-            <h2>Sedes</h2>
-            <Link to="/">Capital</Link>
-            <Link to="/">Yerba buena</Link>
-            <Link to="/">La Pampa</Link>
+          <Link to="/precios">Precios</Link>
           </div>
         </div>
         <div className="footer-link-wrapper">
           <div className="footer-link-items">
-            <h2>Clases</h2>
-            <Link to="/">Spinning</Link>
-            <Link to="/">Yoga</Link>
-            <Link to="/">Indor</Link>
-            <Link to="/">Fuerza</Link>
+            <Link to="/">Clases</Link>
+            
+            
           </div>
           <div className="footer-link-items">
-            <h2>Social </h2>
-            <Link to="/" target="_blank">
-              Instagram
-            </Link>
-            <Link to="/" target="_blank">
-              Facebook
-            </Link>
-            <Link to="/" target="_blank">
-              Youtube
-            </Link>
-            <Link to="/" target="_blank">
-              Twitter
-            </Link>
+            <Link to="/">Horarios</Link> 
           </div>
         </div>
       </div>

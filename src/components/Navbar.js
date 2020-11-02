@@ -43,7 +43,7 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link to="/sedes" className="nav-links" onClick={closeMobileMenu}>
-                Sedes
+                Horarios
               </Link>
             </li>
             <li className="nav-item">
