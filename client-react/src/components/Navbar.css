@@ -80,7 +80,7 @@
 
 @media screen and (max-width: 960px) {
   .navbar {
-    position: relative;
+    position: sticky;
     margin-left: 0px;
   }
 

@@ -38,10 +38,12 @@ const Private = ({ history }) => {
         }
       });
   };
+  
   const { name, email, password1, textChange, role } = formData;
   const handleChange = text => e => {
     setFormData({ ...formData, [text]: e.target.value });
   };
+
   const handleSubmit = e => {
     const token = getCookie('token');
     console.log(token);

@@ -20,7 +20,7 @@ function Contact() {
           </div>
         </div>
         <RedesSociales />
-        <Sedes />
+        {/* <Sedes /> */}
         <ContactForm />
       </div>
       <Footer />
