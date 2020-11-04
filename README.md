@@ -19,11 +19,15 @@ git clone "URL"
 ```sh
 npm i
 ```
+Back y Frontend (cd /client)
 
 ## Usage
 
 ```sh
 npm run dev
+
+cd /client
+npm start
 ```
 
 ## Run tests
