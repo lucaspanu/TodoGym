@@ -42,30 +42,18 @@ useEffect(() => {
     setFormData({ ...formData, [text]: e.target.value });
   };
   
-//     /*===== SHOW NAVBAR  =====*/ 
-// const showNavbar = (toggleId, navId, bodyId, headerId) =>{
-//     const toggle = document.getElementById(toggleId),
-//     nav = document.getElementById(navId),
-//     bodypd = document.getElementById(bodyId),
-//     headerpd = document.getElementById(headerId)
+/*===== LINK ACTIVE  =====*/ 
+const linkColor = document.querySelectorAll('.nav__link')
 
-//     // Validate that all variables exist
-//     if(toggle && nav && bodypd && headerpd){
-//         toggle.addEventListener('click', ()=>{
-//             // change icon
-//             toggle.classList.toggle('bx-x')
-//             // show navbar
-//             nav.classList.toggle('show')
-//             // add padding to body
-//             bodypd.classList.toggle('body-pd')
-//             // add padding to header
-//             headerpd.classList.toggle('body-pd')
-//         })
-//     }
-// }
+function colorLink(){
+    if(linkColor){
+        linkColor.forEach(l=> l.classList.remove('active'))
+        this.classList.add('active')
+    }
+}
+linkColor.forEach(l=> l.addEventListener('click', colorLink))
 
-// showNavbar('header-toggle','nav-bar','body-pd','header')
-
+//Mostrar NavBar
 const [sidebar, setSidebar] = useState(false);
 
 const showSidebar = () => setSidebar(!sidebar);
