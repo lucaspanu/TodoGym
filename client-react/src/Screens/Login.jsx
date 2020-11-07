@@ -6,6 +6,7 @@ import { authenticate, isAuth } from '../helpers/auth';
 import { Link, Redirect } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+import NavBar from "../components/Navbar";
 
 const Login = ({ history }) => {
   //handle changes por imputs
@@ -109,6 +110,8 @@ const Login = ({ history }) => {
     }
   };
   return (
+    <>
+    <NavBar/>
     <div className='min-h-screen bg-gray-100 text-gray-900 flex justify-center'>
       {isAuth() ? <Redirect to='/' /> : null}
       <ToastContainer />
@@ -213,6 +216,7 @@ const Login = ({ history }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

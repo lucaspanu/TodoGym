@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import authSvg from '../assets/Login/forget.svg';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
+import NavBar from "../components/Navbar";
 
 const ForgetPassword = ({history}) => {
   const [formData, setFormData] = useState({
@@ -38,6 +39,8 @@ const ForgetPassword = ({history}) => {
     }
   };
   return (
+    <>
+    <NavBar/>
     <div className='min-h-screen bg-gray-100 text-gray-900 flex justify-center'>
       <ToastContainer />
       <div className='max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1'>
@@ -78,6 +81,7 @@ const ForgetPassword = ({history}) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

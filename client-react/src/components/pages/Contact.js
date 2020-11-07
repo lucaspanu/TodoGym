@@ -4,10 +4,12 @@ import Footer from "../Footer";
 import ContactForm from "../ContactForm.js";
 import RedesSociales from "../RedesSociales.js";
 import Sedes from "../Sedes.js";
+import NavBar from "../../components/Navbar";
 
 function Contact() {
   return (
     <div>
+      <NavBar/>
       <div className="container_general">
         <div className="container_title">
           <div className="container_title_principal">

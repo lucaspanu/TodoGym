@@ -33,6 +33,7 @@
     "lodash": "^4.17.20",
     "mongoose": "^5.10.11",
     "morgan": "^1.10.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "stripe": "^8.120.0"
   }
 }

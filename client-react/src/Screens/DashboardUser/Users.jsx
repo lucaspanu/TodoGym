@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { signout } from '../helpers/auth';
+import { signout } from '../../helpers/auth';
 import { ToastContainer, toast } from 'react-toastify';
+import Navbar from './NavBar2/NavBar2';
 
 function App({ history }) {
   return (
+    <>
+    <Navbar />
     <div className='min-h-screen bg-gray-100 text-gray-900 flex justify-center'>
             <ToastContainer />
       <div className='max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1'>
@@ -53,7 +56,7 @@ function App({ history }) {
                   onClick={() => {
                     signout(() => {
                       toast.error('Signout Successfully');
-                      history.push('/');
+                      // history.push('/');
                     });
                   }}
                   className='mt-5 tracking-wide font-semibold bg-pink-500 text-gray-100 w-full py-4 rounded-lg hover:bg-pink-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none'
@@ -67,6 +70,7 @@ function App({ history }) {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

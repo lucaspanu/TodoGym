@@ -5,6 +5,7 @@ import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import { authenticate, isAuth } from '../helpers/auth';
 import { Link, Redirect } from 'react-router-dom';
+import NavBar from "../components/Navbar";
 
 const Activate = ({ match }) => {
   const [formData, setFormData] = useState({
@@ -48,6 +49,8 @@ const Activate = ({ match }) => {
   };
 
   return (
+    <>
+    <NavBar/>
     <div className='min-h-screen bg-gray-100 text-gray-900 flex justify-center'>
       {isAuth() ? <Redirect to='/' /> : null}
       <ToastContainer />
@@ -98,6 +101,7 @@ const Activate = ({ match }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
