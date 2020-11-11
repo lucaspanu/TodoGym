@@ -91,12 +91,12 @@ return (
                             <span className="nav__name">Perfil</span>
                         </Link>
                         
-                        <Link to="#" className="nav__link">
+                        <Link to="/users/turnos" className="nav__link">
                             <i className='bx bxs-calendar' ></i>
                             <span className="nav__name">Turnos</span>
                         </Link>
 
-                        <Link to="#" className="nav__link">
+                        <Link to="/users/suscripcion" className="nav__link">
                             <i className='bx bxs-id-card' ></i>
                             <span className="nav__name">Suscripcion</span>
                         </Link>

@@ -3,6 +3,9 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const connectDB = require('./config/db')
+//stripe
+const Stripe = require("stripe");
+const stripe = new Stripe("sk_test_51HkZHyL3uqxLO4xh6zBIZYwJuZxX9s2ruyIBsdkbbWtwtd5H3Sw5fGQzj7GBQiwoPiPRbWbnq0wlCVKoH8joChYL00YLVnws8L");
 
 //Config .env to ./config/config.ev
 require('dotenv').config({
@@ -32,11 +35,13 @@ if (process.env.NODE_ENV === 'development') {
 // Load routes
 const authRouter = require('./routes/auth.route')
 const userRouter = require('./routes/user.route')
-
+const stripeRouter = require('./routes/stripe.route')
 
 // Use Routes
 app.use('/api', authRouter)
 app.use('/api', userRouter)
+//stripe route
+app.use('/api', stripeRouter)
 
 app.use((req, res) => {
     res.status(404).json({

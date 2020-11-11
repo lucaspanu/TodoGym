@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Link, Redirect } from 'react-router-dom';
 import "./App.css";
 
 // Paginas
@@ -19,9 +20,12 @@ import Admin from './Screens/DashboardAdmin/Admin.jsx';
 // import Users from './Screens/Users.jsx';
 import Users from './Screens/DashboardUser/Users';
 import PrivateContra from './Screens/DashboardUser/PrivateContra';
+import UserSuscripcion from './Screens/DashboardUser/SuscripcionUser';
+import Turnos from './Screens/DashboardUser/Turnos';
 
 import PrivateRoute from './Routes/PrivateRoute';
 import AdminRoute from './Routes/AdminRoute';
+import HomeRoute from  './Routes/HomeRoute';
 import 'react-toastify/dist/ReactToastify.css';
 
 //Elementos
@@ -34,7 +38,7 @@ function App() {
         <Router>
           {/* <Navbar/> */}
           <Switch>
-            <Route exact path="/" component={Home} />
+            <HomeRoute exact path="/" component={Home} />
             <Route exact path="/contacto" component={Contact} />
             <Route exact path="/precios" component={Precios} />
             {/* Usuarios */}
@@ -44,9 +48,13 @@ function App() {
             <Route path='/users/activate/:token' exact render={props => <Activate {...props} />} />
             <Route path='/users/password/reset/:token' exact render={props => <Reset {...props} />} />
             {/* <Route path='/users' exact render={props => <Users {...props} />} /> */}
-            <PrivateRoute path="/users" exact component={Users} />
-            <PrivateRoute path="/users/config" exact component={PrivateContra} />
+            {/* <PrivateRoute path="/users" exact component={Users} />
+             */}
+            <Redirect exact from="/users" to="/private" />
             <PrivateRoute path="/private" exact component={Private} />
+            <PrivateRoute path="/users/turnos" exact component={Turnos} />
+            <PrivateRoute path="/users/suscripcion" exact component={UserSuscripcion} />
+            <PrivateRoute path="/users/config" exact component={PrivateContra} />
             <AdminRoute path="/admin" exact component={Admin} />
             {/* Pagina no encontrada */}
             <Route component={NoMatch} />
