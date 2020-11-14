@@ -3,7 +3,8 @@ import authSvg from '../../assets/Login/reset.svg';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { updateUser, isAuth, getCookie, signout } from '../../helpers/auth';
-import Navbar from './NavBar2/NavBar2';
+import NavbarUser from './NavBar2/NavBar2';
+import NavbarAdmin from '../DashboardAdmin/NavBar/NavBar';
 
 const Private = ({ history }) => {
   const [formData, setFormData] = useState({
@@ -75,9 +76,18 @@ const Private = ({ history }) => {
       });
   };
 
+ // Navbar a usar
+ let NavbarContent;
+  
+ if (role == "admin") {
+   NavbarContent = NavbarAdmin;
+ }else{
+   NavbarContent = NavbarUser;
+ }
+
   return (
     <>
-    <Navbar/>
+    <NavbarContent/>
     <div className='min-h-screen bg-gray-100 text-gray-900 flex justify-center'>
       <ToastContainer />
       <div className='max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1'>

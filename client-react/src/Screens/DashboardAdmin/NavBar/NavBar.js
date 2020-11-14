@@ -86,7 +86,7 @@ return (
 
                     <div className="nav__list">
 
-                        <Link href="/admin" class="nav__link active">
+                        <Link to="/admin" class="nav__link">
                         <i class='bx bx-grid-alt nav__icon' ></i>
                             <span class="nav__name">Dashboard</span>
                         </Link>
@@ -97,13 +97,18 @@ return (
                         </Link>
                         
                         <Link to="#" className="nav__link">
-                            <i className='bx bxs-calendar' ></i>
-                            <span className="nav__name">Turnos</span>
+                            <i class='bx bxs-pencil'></i>
+                            <span className="nav__name">Add Clases</span>
+                        </Link>
+                        
+                        <Link to="#" className="nav__link">
+                            <i class='bx bxs-pencil'></i>
+                            <span className="nav__name">Add Turnos</span>
                         </Link>
 
                         <Link to="#" className="nav__link">
-                            <i className='bx bxs-id-card' ></i>
-                            <span className="nav__name">Suscripcion</span>
+                            <i class='bx bxs-pencil'></i>
+                            <span className="nav__name">New Admin</span>
                         </Link>
 
                         <Link to="/users/config" className="nav__link">

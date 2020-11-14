@@ -3,9 +3,6 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const connectDB = require('./config/db')
-//stripe
-const Stripe = require("stripe");
-const stripe = new Stripe("sk_test_51HkZHyL3uqxLO4xh6zBIZYwJuZxX9s2ruyIBsdkbbWtwtd5H3Sw5fGQzj7GBQiwoPiPRbWbnq0wlCVKoH8joChYL00YLVnws8L");
 
 //Config .env to ./config/config.ev
 require('dotenv').config({

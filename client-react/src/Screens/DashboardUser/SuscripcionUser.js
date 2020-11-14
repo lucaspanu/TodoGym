@@ -203,6 +203,10 @@ function SuscripcionUser() {
             {/* <!--//BLOCK ROW END--> */}
           </div>
         </section>
+          <div className='estado_suscripcion'>
+            <span>Estado de Suscripcion: Inactiva</span>
+            <span>Fecha: --</span>
+          </div>
       </div>
     </>
   )

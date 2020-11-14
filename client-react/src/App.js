@@ -16,13 +16,16 @@ import Forget from "./Screens/ForgetPassword";
 import Activate from './Screens/Activate'
 import Reset from './Screens/Reset'
 import Private from './Screens/DashboardUser/Private';
-import Admin from './Screens/DashboardAdmin/Admin.jsx';
+// import Users from './Screens/DashboardUser/Users';
 // import Users from './Screens/Users.jsx';
-import Users from './Screens/DashboardUser/Users';
 import PrivateContra from './Screens/DashboardUser/PrivateContra';
 import UserSuscripcion from './Screens/DashboardUser/SuscripcionUser';
 import Turnos from './Screens/DashboardUser/Turnos';
+//Administrador
+import Admin from './Screens/DashboardAdmin/Admin.jsx';
+import Dashboard from "./Screens/DashboardAdmin/Dashboard";
 
+//Rutas privadas
 import PrivateRoute from './Routes/PrivateRoute';
 import AdminRoute from './Routes/AdminRoute';
 import HomeRoute from  './Routes/HomeRoute';
@@ -30,6 +33,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 //Elementos
 // import NavBar from "./components/Navbar";
+import PagoCancelado from './Screens/DashboardUser/PagoCancelado';
 
 function App() {
   return (
@@ -41,6 +45,7 @@ function App() {
             <HomeRoute exact path="/" component={Home} />
             <Route exact path="/contacto" component={Contact} />
             <Route exact path="/precios" component={Precios} />
+            <Route exact path="/canceled" component={PagoCancelado} />
             {/* Usuarios */}
             <Route path='/register' exact render={props => <Register {...props} />} />
             <Route path='/login' exact render={props => <Login {...props} />} />
@@ -55,7 +60,7 @@ function App() {
             <PrivateRoute path="/users/turnos" exact component={Turnos} />
             <PrivateRoute path="/users/suscripcion" exact component={UserSuscripcion} />
             <PrivateRoute path="/users/config" exact component={PrivateContra} />
-            <AdminRoute path="/admin" exact component={Admin} />
+            <AdminRoute path="/admin" exact component={Dashboard} />
             {/* Pagina no encontrada */}
             <Route component={NoMatch} />
           </Switch>
