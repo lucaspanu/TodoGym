@@ -3,7 +3,7 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const connectDB = require('./config/db')
-//stripe
+    //stripe
 const Stripe = require("stripe");
 const stripe = new Stripe("sk_test_51HkZHyL3uqxLO4xh6zBIZYwJuZxX9s2ruyIBsdkbbWtwtd5H3Sw5fGQzj7GBQiwoPiPRbWbnq0wlCVKoH8joChYL00YLVnws8L");
 
@@ -28,19 +28,21 @@ if (process.env.NODE_ENV === 'development') {
     }))
 
     app.use(morgan('dev'))
-    //morgan give information about each request
-    //cors its allow to deal with react for localhost at port 3000 without any problem
+        //morgan give information about each request
+        //cors its allow to deal with react for localhost at port 3000 without any problem
 }
 
 // Load routes
 const authRouter = require('./routes/auth.route')
 const userRouter = require('./routes/user.route')
 const stripeRouter = require('./routes/stripe.route')
+const turnosRouter = require('./routes/turno.route')
 
 // Use Routes
 app.use('/api', authRouter)
 app.use('/api', userRouter)
-//stripe route
+app.use('/api', turnosRouter)
+    //stripe route
 app.use('/api', stripeRouter)
 
 app.use((req, res) => {
