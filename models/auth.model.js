@@ -29,6 +29,11 @@ const userScheama = new mongoose.Schema(
       resetPasswordLink: {
         data: String,
         default: ''
+      }, 
+      // Suscripcion
+      suscripcion:{
+        type: Boolean,
+        default: false
       }
     },
     {

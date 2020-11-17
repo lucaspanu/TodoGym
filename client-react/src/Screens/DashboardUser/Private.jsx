@@ -12,7 +12,8 @@ const Private = ({ history }) => {
     email: '',
     password1: '',
     textChange: 'Update',
-    role: ''
+    role: '',
+    suscripcion: ''
   });
 
   useEffect(() => {
@@ -28,8 +29,8 @@ const Private = ({ history }) => {
         }
       })
       .then(res => {
-        const { role, name, email } = res.data;
-        setFormData({ ...formData, role, name, email });
+        const { role, name, email, suscripcion } = res.data;
+        setFormData({ ...formData, role, name, email, suscripcion });
       })
       .catch(err => {
         toast.error(`Error To Your Information ${err.response.statusText}`);
@@ -41,7 +42,9 @@ const Private = ({ history }) => {
       });
   };
   
-  const { name, email, password1, textChange, role } = formData;
+  const { name, email, password1, textChange, role, suscripcion } = formData;
+
+
   const handleChange = text => e => {
     setFormData({ ...formData, [text]: e.target.value });
   };
@@ -50,14 +53,15 @@ const Private = ({ history }) => {
     const token = getCookie('token');
     console.log(token);
     e.preventDefault();
-    setFormData({ ...formData, textChange: 'Submitting' });
+    setFormData({ ...formData, textChange: 'Submitting'});
     axios
       .put(
         `${process.env.REACT_APP_API_URL}/user/update`,
         {
           name,
           email,
-          password: password1
+          password: password1,
+          suscripcion
         },
         {
           headers: {
@@ -69,6 +73,9 @@ const Private = ({ history }) => {
         updateUser(res, () => {
           toast.success('Profile Updated Successfully');
           setFormData({ ...formData, textChange: 'Update' });
+          setTimeout(function() {
+            window.location.href = "/private";
+          }, 3000);
         });
       })
       .catch(err => {

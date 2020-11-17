@@ -18,7 +18,7 @@ exports.readController = (req, res) => {
 exports.updateController = (req, res) => {
     
     // console.log('UPDATE USER - req.user', req.user, 'UPDATE DATA', req.body);
-    const { name, password } = req.body;
+    const { name, password, suscripcion } = req.body;
 
     User.findOne({ _id: req.user._id }, (err, user) => {
         if (err || !user) {
@@ -42,6 +42,10 @@ exports.updateController = (req, res) => {
             } else {
                 user.password = password;
             }
+        }
+
+        if (suscripcion) {
+            user.suscripcion = suscripcion;
         }
 
         user.save((err, updatedUser) => {

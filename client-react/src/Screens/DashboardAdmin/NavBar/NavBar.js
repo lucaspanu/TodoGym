@@ -80,14 +80,14 @@ return (
             <nav className="nav">
                 <div>
                     <Link to="#" className="nav__logo" onClick={showSidebar}>
-                    <i className="fas fa-dumbbell"></i>
+                        <i className="fas fa-dumbbell"></i>
                         <span className="nav__logo-name">TODOGYM</span>
                     </Link>
 
                     <div className="nav__list">
 
                         <Link to="/admin" class="nav__link">
-                        <i class='bx bx-grid-alt nav__icon' ></i>
+                            <i class='bx bx-grid-alt nav__icon' ></i>
                             <span class="nav__name">Dashboard</span>
                         </Link>
 
@@ -96,17 +96,17 @@ return (
                             <span className="nav__name">Perfil</span>
                         </Link>
                         
-                        <Link to="#" className="nav__link">
+                        <Link to="/admin/clases" className="nav__link">
                             <i class='bx bxs-pencil'></i>
                             <span className="nav__name">Add Clases</span>
                         </Link>
                         
-                        <Link to="#" className="nav__link">
+                        <Link to="/admin/turnos" className="nav__link">
                             <i class='bx bxs-pencil'></i>
                             <span className="nav__name">Add Turnos</span>
                         </Link>
 
-                        <Link to="#" className="nav__link">
+                        <Link to="/admin/new" className="nav__link">
                             <i class='bx bxs-pencil'></i>
                             <span className="nav__name">New Admin</span>
                         </Link>

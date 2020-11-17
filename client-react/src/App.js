@@ -20,10 +20,15 @@ import Private from './Screens/DashboardUser/Private';
 // import Users from './Screens/Users.jsx';
 import PrivateContra from './Screens/DashboardUser/PrivateContra';
 import UserSuscripcion from './Screens/DashboardUser/SuscripcionUser';
+import PagoCancelado from './Screens/DashboardUser/PagoCancelado';
+import PagoExitoso from './Screens/DashboardUser/PagoRealizado';
 import Turnos from './Screens/DashboardUser/Turnos';
 //Administrador
 import Admin from './Screens/DashboardAdmin/Admin.jsx';
 import Dashboard from "./Screens/DashboardAdmin/Dashboard";
+import Clases from "./Screens/DashboardAdmin/AddClases";
+import AddTurnos from "./Screens/DashboardAdmin/AddTurnos";
+import NewAdmin from "./Screens/DashboardAdmin/NewAdmin";
 
 //Rutas privadas
 import PrivateRoute from './Routes/PrivateRoute';
@@ -33,7 +38,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 //Elementos
 // import NavBar from "./components/Navbar";
-import PagoCancelado from './Screens/DashboardUser/PagoCancelado';
 
 function App() {
   return (
@@ -45,7 +49,6 @@ function App() {
             <HomeRoute exact path="/" component={Home} />
             <Route exact path="/contacto" component={Contact} />
             <Route exact path="/precios" component={Precios} />
-            <Route exact path="/canceled" component={PagoCancelado} />
             {/* Usuarios */}
             <Route path='/register' exact render={props => <Register {...props} />} />
             <Route path='/login' exact render={props => <Login {...props} />} />
@@ -57,10 +60,16 @@ function App() {
              */}
             <Redirect exact from="/users" to="/private" />
             <PrivateRoute path="/private" exact component={Private} />
+            <PrivateRoute path="/users/config" exact component={PrivateContra} />
             <PrivateRoute path="/users/turnos" exact component={Turnos} />
             <PrivateRoute path="/users/suscripcion" exact component={UserSuscripcion} />
-            <PrivateRoute path="/users/config" exact component={PrivateContra} />
+            <PrivateRoute path="/canceled" exact component={PagoCancelado} />
+            <PrivateRoute path="/success" exact component={PagoExitoso} />
             <AdminRoute path="/admin" exact component={Dashboard} />
+            <AdminRoute path="/admin/clases" exact component={Clases} />
+            <AdminRoute path="/admin/turnos" exact component={AddTurnos} />
+            <AdminRoute path="/admin/new" exact component={NewAdmin} />
+
             {/* Pagina no encontrada */}
             <Route component={NoMatch} />
           </Switch>

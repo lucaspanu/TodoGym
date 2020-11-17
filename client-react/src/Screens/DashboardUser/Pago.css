@@ -28,6 +28,10 @@
   font-size: 16px;
 }
 
+.error-blue {
+  background-color: #1fab89 !important;
+}
+
 .error-rescue-modal-titulo {
   vertical-align: middle;
   text-overflow: ellipsis;
@@ -89,6 +93,14 @@
   margin-left: 100%;
   transform: translate(-100%, 0%);
   background-color: #c9302c !important;
+}
+
+.btn-nodanger {
+  color: white;
+  vertical-align: middle;
+  margin-left: 100%;
+  transform: translate(-100%, 0%);
+  background-color: #1fab89 !important;
 }
 
 @media (max-width: 320px) {

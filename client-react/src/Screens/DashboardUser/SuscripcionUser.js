@@ -2,13 +2,66 @@ import React, { useState, useEffect } from "react";
 // import '../../components/PreciosTabla.css';
 import './SuscripcionUser.css';
 import Navbar from './NavBar2/NavBar2';
-import { loadStripe } from "@stripe/stripe-js";
 
+import { isAuth, getCookie, signout } from '../../helpers/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
+
+import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe("pk_test_51HkZHyL3uqxLO4xhRjKT1J9a3dzOvUKcYqWqdbYinibfamlKtcwmIMTVkKVa0WwkjQPdsZI0GtjD0DfDgC0yWI11009poHaZJW");
 
 
 function SuscripcionUser() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password1: '',
+    role: '',
+    suscripcion: ''
+});
+
+useEffect(() => {
+    loadProfile();
+  }, []);
+
+  const loadProfile = () => {
+    const token = getCookie('token');
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/user/${isAuth()._id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      .then(res => {
+        const { role, name, email, suscripcion } = res.data;
+        setFormData({ ...formData, role, name, email, suscripcion });
+      })
+      .catch(err => {
+        toast.error(`Error To Your Information ${err.response.statusText}`);
+      });
+  };
+  
+  const { name, email, password1,  role, suscripcion } = formData;
+
+  let activo;
+  let fechasus;
+  var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+  var f = new Date();
+  if (suscripcion) {
+    activo = 'Activa'
+    fechasus = f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear();
+  }else{
+    activo = 'Inactiva'
+    fechasus = "--"
+  }
+
+
   const handleClick = async (event) => {
+    if (suscripcion) {
+      toast.success('Suscripcion Activa');
+      return
+    }
+
     // Get Stripe.js instance
     const stripe = await stripePromise;
 
@@ -32,6 +85,7 @@ function SuscripcionUser() {
   return (
     <>
       <Navbar/>     
+      <ToastContainer />
       <div id="Sub_table">
         <section className="planes_suscripcion">
           <div class="container">
@@ -204,8 +258,8 @@ function SuscripcionUser() {
           </div>
         </section>
           <div className='estado_suscripcion'>
-            <span>Estado de Suscripcion: Inactiva</span>
-            <span>Fecha: --</span>
+            <span>Estado de Suscripcion: {activo}</span>
+            <span>Suscripto desde: {fechasus}</span>
           </div>
       </div>
     </>
