@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/lucaspanu/TodoGym#readme",
   "dependencies": {
+    "@fullcalendar/interaction": "^5.4.0",
     "@sendgrid/mail": "^7.3.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",

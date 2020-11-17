@@ -7,6 +7,7 @@ import "./App.css";
 import Home from "./components/pages/Home";
 import Contact from "./components/pages/Contact";
 import Precios from "./components/pages/Precios";
+import Horarios from "./components/pages/Horarios";
 import NoMatch from "./components/pages/NoMatch";
 
 //Usuario
@@ -49,6 +50,7 @@ function App() {
             <HomeRoute exact path="/" component={Home} />
             <Route exact path="/contacto" component={Contact} />
             <Route exact path="/precios" component={Precios} />
+            <Route exact path="/horarios" component={Horarios} />
             {/* Usuarios */}
             <Route path='/register' exact render={props => <Register {...props} />} />
             <Route path='/login' exact render={props => <Login {...props} />} />

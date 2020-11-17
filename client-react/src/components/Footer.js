@@ -9,7 +9,7 @@ function Footer() {
       <div className="footer-links">
         <div className="footer-link-wrapper">
           <div className="footer-link-items">
-          <Link to="/contacto">Contacto</Link>
+          <Link to="/">Inicio</Link>
             
           </div>
           <div className="footer-link-items">
@@ -18,12 +18,12 @@ function Footer() {
         </div>
         <div className="footer-link-wrapper">
           <div className="footer-link-items">
-            <Link to="/">Clases</Link>
+            <Link to="/horarios">Horarios</Link>
             
             
           </div>
           <div className="footer-link-items">
-            <Link to="/">Horarios</Link> 
+            <Link to="/contacto">Contacto</Link> 
           </div>
         </div>
       </div>

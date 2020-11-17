@@ -1,0 +1,6 @@
+.titulo_horario {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  color: #3282b8;
+}
