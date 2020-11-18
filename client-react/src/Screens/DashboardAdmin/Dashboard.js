@@ -6,7 +6,7 @@ function Dashboard() {
     return (
         <div className ='dashboard_admin'>
             <Navbar/>
-            <h1>ASDASDASDASDASDASDASD</h1>
+            <h1>Dashboard Administrador</h1>
         </div>
     )
 }

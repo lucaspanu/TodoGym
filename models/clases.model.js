@@ -22,6 +22,10 @@ const ClasesSchema = new mongoose.Schema
         type: Boolean,
         default: true
     },
+    cupos:{
+        type: Number,
+        required: true
+    }
 })
 
 module.exports = Clase = mongoose.model('Clase', ClasesSchema);

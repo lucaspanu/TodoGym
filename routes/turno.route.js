@@ -1,31 +1,24 @@
 const Turno = require('../models/turno.model');
-
 const express = require('express');
+const router = express.Router();
 
-const app = express();
 
-app.post('/turno', function(req, res) {
+//Alta de turnos
+router.post('/turno', function(req, res) {
+    const { fecha, usuario, horario, clase} = req.body;
+    if (!usuario) {
+        return res.status(400).json({
+            ok: false,
+            motivo: 'Usuario no encontrado'
+        });
+    }
+    if (!clase) {
+        return res.status(400).json({
+            ok: false,
+            motivo: 'La clase es un campo obligatorio'
+        });
+    }
 
-    let { fecha, usuario, horario, clase } = req.query;
-    // if (!fecha) {
-    //     return res.status(400).json({
-    //         ok: false,
-    //         motivo: 'La fecha es un campo obligatorio'
-    //     });
-    // }
-    // if (!horario) {
-    //     return res.status(400).json({
-    //         ok: false,
-    //         motivo: 'El horario es un campo obligatorio'
-    //     });
-    // }
-    // if (!cupos) {
-    //     return res.status(400).json({
-    //         ok: false,
-    //         motivo: 'El cupo es un campo obligatorio'
-    //     });
-    // }
-    console.log(`${[fecha, usuario, horario, clase ].join(',')}`);
     let turno = new Turno({
         fecha,
         usuario,
@@ -34,7 +27,6 @@ app.post('/turno', function(req, res) {
     });
 
     turno.save((err, turnoDB) => {
-        console.log(`Error: ${err}`);
         if (err) {
             return res.status(400).json({
                 ok: false,
@@ -51,24 +43,48 @@ app.post('/turno', function(req, res) {
 
 });
 
+// READ (ALL)
+router.get('/turnos', (req, res) => { 
+    const { fecha } = req.body; 
 
-app.get('/turno/:id', function(req, res) {
+    if (fecha != null) {
+        Turno.find({ fecha })
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        res.status(500).json({ success: false, msg: `Something went wrong. ${err}` });
+    });
+    } else {
+    Turno.find({})
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        res.status(500).json({ success: false, msg: `Something went wrong. ${err}` });
+    });
+    }
+});
+
+// Obtine un turno
+router.get('/turno/:id', function(req, res) {
     let idturno = req.params.id;
     Turno.findOne({ _id: idturno })
         .exec((err, turno) => {
 
-            if (err) {
-                return res.status(400).json({
-                    ok: false,
-                    error: err
-                });
-            }
-
-            res.json({
-                turno
+        if (err) {
+            return res.status(400).json({
+                ok: false,
+                error: err
             });
+        }
 
+         res.json({
+            turno
         });
 
+    });
+
 });
-module.exports = app;
+
+module.exports = router;

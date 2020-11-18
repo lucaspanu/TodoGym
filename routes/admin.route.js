@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { validRegister } = require('../helpers/valid')
 const { adminRegisterController } = require('../controllers/admin.controller')
-
+const { errorHandler } = require('../helpers/dbErrorHandling');
 const Clase = require('../models/clases.model')
 
 //agregar un nuevo administrador
@@ -23,7 +23,7 @@ router.get('/admin', (req, res) => {
 
 //Create
 router.post('/admin/addclase', (req, res) => {
-    const { titulo, descripcion, horarios } = req.body;
+    const { titulo, descripcion, horarios, cupos } = req.body;
     const errors = [];
     if (!titulo) {
       errors.push({ text: "Please Write a Title." });
@@ -36,14 +36,16 @@ router.post('/admin/addclase', (req, res) => {
         errors,
         titulo,
         descripcion,
-        horarios
+        horarios,
+        cupos
       });
     } else {
 
     const clase = new Clase({
         titulo,
         descripcion,
-        horarios
+        horarios,
+        cupos
     });
   
     clase.save((err, clase) => {
@@ -55,7 +57,6 @@ router.post('/admin/addclase', (req, res) => {
         } else {
           return res.json({
             success: true,
-            message: clase,
             message: 'Añadido Exitosamente'
           });
         }
