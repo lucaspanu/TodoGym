@@ -71,7 +71,7 @@ router.delete('/admin/clase/:id', async (req, res) => {
     return res.json({
         success: true,
         message: 'Eliminado Exitosamente'
-      });
+    });
 })
 
 module.exports = router;

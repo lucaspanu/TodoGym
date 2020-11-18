@@ -11,7 +11,8 @@ import Col from 'react-bootstrap/Col'
 
 function Dashboard() {
     const [formData, setFormData] = useState({
-        clases:[]
+        clases:[],
+        idclase: ''
     });
 
     useEffect(() => {
@@ -33,12 +34,28 @@ function Dashboard() {
     };
     var {clases} = formData;
 
+    const handleChange = text => e => {
+      console.log(text)
+      axios
+      .delete(
+        `${process.env.REACT_APP_API_URL}/admin/clase/${text}`,
+        {text}
+      )
+      .then(res => {
+        console.log(res)
+        toast.success('Borrado Existoso');
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
+    };
+
     return (
         <>
         <Navbar/>
         <ToastContainer />
         
-                <div className ='dashboard_admin'>
+        <div className ='dashboard_admin'>
         <h1>Dashboard Administrador</h1>
         <h2>Clases</h2>
         </div>
@@ -66,7 +83,9 @@ function Dashboard() {
   <td>{elemento.descripcion}</td>
   <td>{elemento.horarios}</td>
   <td>{elemento.cupos}</td>
-  <button>Borrar</button>
+  <td className='td_borrar'>
+    <button className='btn_borrar' value={elemento.id} onClick={handleChange(`${elemento._id}`)}>Borrar</button>
+    </td>
   </tr>
                     ))}
 
