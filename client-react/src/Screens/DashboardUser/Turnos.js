@@ -143,6 +143,7 @@ function Turnos() {
       <th>Clase</th>
       <th>Fecha</th>
       <th>Horario</th>
+      <th></th>
     </tr>
   </thead>
 

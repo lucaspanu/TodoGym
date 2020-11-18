@@ -105,7 +105,7 @@ function Dashboard() {
   <tr>
       <td>{elemento.titulo}</td>
   <td>{elemento.descripcion}</td>
-  <td>{elemento.horarios}</td>
+  <td>{elemento.fecha}</td>
   <td>{elemento.cupos}</td>
   <td className='td_borrar'>
     <button className='btn_borrar' value={elemento.id} onClick={handleChange(`${elemento._id}`)}>Borrar</button>
