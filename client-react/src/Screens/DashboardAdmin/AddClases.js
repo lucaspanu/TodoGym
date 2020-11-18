@@ -74,14 +74,14 @@ function AddClases() {
                 <input
                   className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white'
                   type='text'
-                  placeholder='titulo'
+                  placeholder='Titulo'
                   onChange={handleChange('titulo')}
                   value={titulo}
                 />
                 <input
                   className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5'
                   type='text'
-                  placeholder='descripcion'
+                  placeholder='Descripcion'
                   onChange={handleChange('descripcion')}
                   value={descripcion}
                 />
@@ -95,6 +95,7 @@ function AddClases() {
                 <input
                   className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5'
                   type="number"
+                  placeholder='Cupos Disponibles'
                   onChange={handleChange('cupos')}
                   value={cupos}
                 />

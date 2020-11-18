@@ -4,3 +4,26 @@
   flex-direction: column;
   align-items: center;
 }
+
+.btn_clases_btn {
+  border-radius: 10px;
+  background-color: transparent;
+  color: white;
+  padding: 8px 20px;
+  border: 1px solid var(--primary);
+  transition: all 0.3s ease-out;
+  margin: 0 0 5px 0;
+}
+
+.btn_clases-btn {
+  background-color: var(--primary);
+  color: #fff;
+  border: 1px solid var(--primary);
+}
+
+.btn_clases-btn:hover {
+  transition: all 0.3s ease-out;
+  background: #fff;
+  color: #3282b8;
+  transition: 250ms;
+}

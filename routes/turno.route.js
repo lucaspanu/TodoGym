@@ -6,12 +6,13 @@ const router = express.Router();
 //Alta de turnos
 router.post('/turno', function(req, res) {
     const { fecha, usuario, horario, clase} = req.body;
-    if (!usuario) {
+    if (!horario) {
         return res.status(400).json({
             ok: false,
-            motivo: 'Usuario no encontrado'
+            motivo: 'El horario es un campo obligatorio'
         });
     }
+
     if (!clase) {
         return res.status(400).json({
             ok: false,

@@ -11,7 +11,7 @@ router.post('/admin/new',validRegister, adminRegisterController);
 
 //Clases
 // READ (ALL)
-router.get('/admin', (req, res) => {
+router.get('/clases', (req, res) => {
     Clase.find({})
       .then((result) => {
         res.json(result);

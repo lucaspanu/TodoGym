@@ -15,7 +15,7 @@ const ClasesSchema = new mongoose.Schema
     },
     horarios:
     {
-        type: Date,
+        type: String,
         required: true
     },
     estado: {

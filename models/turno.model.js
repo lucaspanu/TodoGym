@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 let turnoSchema = new mongoose.Schema({
     fecha: {
         type: String,
-        require: true
+        default: ''
     },
     usuario: {
         type: String,
-        require: true
+        default: ''
     },
     horario: {
         type: String,

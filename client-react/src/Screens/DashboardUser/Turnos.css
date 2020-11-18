@@ -1,0 +1,27 @@
+/* .container-fluid {
+  background-color: rgba(27, 38, 44, 0.2);
+  border-radius: 20px;
+  margin-top: 0px;
+  padding-top: 15px;
+} */
+
+.items-center {
+  margin-top: 0;
+}
+
+.datePicker {
+  border: 1px #1175b8 solid;
+  color: black;
+  border-radius: 5px;
+}
+
+.datepicker_title h1 {
+  color: #0f4c75;
+}
+.grid_horarios h1 {
+  color: #0f4c75;
+}
+
+.container_grid_horarios {
+  margin: 15px;
+}
