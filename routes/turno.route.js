@@ -46,10 +46,10 @@ router.post('/turno', function(req, res) {
 
 // READ (ALL)
 router.get('/turnos', (req, res) => { 
-    const { fecha } = req.body; 
+    const { clase } = req.body; 
 
-    if (fecha != null) {
-        Turno.find({ fecha })
+    if (clase != null) {
+        Turno.find({ clase })
       .then((result) => {
         res.json(result);
       })

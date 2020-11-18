@@ -5,45 +5,24 @@ import { isAuth, getCookie, signout } from '../../helpers/auth';
 import DatePicker, {registerLocale} from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import es from 'date-fns/locale/es'
-
+import Form from 'react-bootstrap/Form'
 
 import "./Turnos.css"
 
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
+import { forEach } from 'lodash';
 
 function Turnos() {
-
     const [formData, setFormData] = useState({
         name: '',
-        email: '',
-        password1: '',
-        role: ''
+        suscripcion: '',
+        clases:[],
+        turnos:[]
     });
+    var claseSelec;
 
-    useEffect(() => {
-        loadProfile();
-    }, []);
-
-    const loadProfile = () => {
-        const token = getCookie('token');
-        axios
-          .get(`${process.env.REACT_APP_API_URL}/user/${isAuth()._id}`, {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
-          })
-          .then(res => {
-            const { role, name, email } = res.data;
-            setFormData({ ...formData, role, name, email });
-          })
-          .catch(err => {
-            toast.error(`Error To Your Information ${err.response.statusText}`);
-          });
-    };
-
-    const { name, email, password1,  role } = formData;
-
+    //Fechas
     const [startDate, setStartDate] = useState(new Date());
     
     var handleDateChange =
@@ -53,35 +32,64 @@ function Turnos() {
     
     const fiveDaysFromNow = new Date()
     fiveDaysFromNow.setDate(fiveDaysFromNow.getDate() +5)
+    const clasday = `${startDate.getDate()}/${startDate.getMonth()}/${startDate.getFullYear()}`
+    //Switches
+    const onRadioChange = e => {
+        console.log(e.target.value)
+        claseSelec = e.target.value
+    };
 
+    //evneto click
     const HandleClick = e => {
         alert(`${e.target.name} ${startDate.getDate()}/${startDate.getMonth()}/${startDate.getFullYear()}`)
     }
 
-    const onRadioChange = e => {
-        console.log(e.target.value)
+    //Carga de Datos
+    useEffect(() => {
+        loadData();
+    }, []);
+
+    const loadData = () => {
+        const token = getCookie('token');
+        axios.all([
+            axios.get(`${process.env.REACT_APP_API_URL}/clases`,{clases}),
+            axios.get(`${process.env.REACT_APP_API_URL}/user/${isAuth()._id}`, {
+            headers: { Authorization: `Bearer ${token}` }
+            }),
+            axios.get(`${process.env.REACT_APP_API_URL}/turnos`,{})
+        ])
+          .then(axios.spread((req, res,tur) => {
+            const { name, suscripcion} = res.data;
+            setFormData({ ...formData, name, suscripcion, clases: req.data, turnos: tur.data});
+          }))
+          .catch(err => {
+            toast.error(`Error To Your Information ${err.response.statusText}`);
+          });
     };
 
+    const { name, suscripcion, clases, turnos } = formData;
+    
     return (
         <div>
             <Navbar/>
-
+            <ToastContainer/>
             <div className='min-h-screen bg-gray-100 text-gray-900 flex justify-center'>
                 <div className="max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1">
                     <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
                         <div className="mt-12 flex flex-col items-center">
                             <h1 className="text-2xl xl:text-3xl font-extrabold">Bienvenido</h1>
                             <div className="nav__bienvenida">
-                                <span>{name}</span>
+                                <span >{name}</span>
                             </div>
                             <div className="text-2xl xl:text-3xl font-extrabold">
                                 <h3 className="text-2xl xl:text-3xl font-extrabold">Estado de Suscripcion:</h3>
                             </div>
                             <div className="nav__bienvenida">
-                                <span>Activa</span>
+                            <span className={suscripcion?'sus_activa' : 'sus_inactiva'}>{suscripcion?'Activa' : 'Inactiva'}</span>
                             </div>
                         </div>
                     </div>
+                    <form action="">
                     <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
                         <div className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat">
 
@@ -90,7 +98,8 @@ function Turnos() {
                                 <div className="datepicker_title">
 
                                     <h1 className="text-2xl xl:text-3xl font-extrabold">Selecciona el dia</h1>
-                                    <DatePicker 
+                                    <DatePicker
+                                    disabled = {!suscripcion}
                                     className="datePicker"
                                     selected={startDate}
                                     onChange={handleDateChange}
@@ -103,24 +112,21 @@ function Turnos() {
                                 <div className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat">
                                     <div className='mt-12 flex flex-col items-center'>
                                         <div className="datepicker_title">
-                                        <h1 className="text-2xl xl:text-3xl font-extrabold">Selecciona la Clase</h1>
+                                        <h1 className="text-2xl xl:text-3xl font-extrabold" >Selecciona la Clase</h1>
                                             {/* <Checklist /> */}
                                             <div className="custom-control custom-checkbox ">
-                                                <div className="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="customRadioInline1" name="customRadioInline1" className="custom-control-input" 
-                                                    // checked={this.checkCrossfit}
-                                                    onChange={onRadioChange}
-                                                    value="crossfit"/>
-                                                    <label className="custom-control-label" for="customRadioInline1">CrossFit</label>
-                                                </div>
-                                                <div className="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="customRadioInline2" name="customRadioInline1" className="custom-control-input" 
-                                                    onChange={onRadioChange}
-                                                    // checked={this.checkSpinning}
-                                                    value="spinning"
-                                                    />
-                                                    <label className="custom-control-label" for="customRadioInline2">Spinning</label>
-                                                </div>
+                                            {clases.map(elemento =>(
+                                                <div key={elemento.titulo} className="mb-3">
+                                                <Form.Check                                                 
+                                                  onChange={onRadioChange}
+                                                  onClick={onRadioChange}
+                                                  type="checkbox"
+                                                  id={elemento.id}
+                                                  value={elemento.titulo}
+                                                  label={elemento.titulo}
+                                                />
+                                              </div>
+                                            ))}                                                
                                             </div>
                                         </div>
                                     </div>
@@ -134,60 +140,13 @@ function Turnos() {
                                             <div className="container -fluid">
                                                 <div className="container_grid_horarios">
                                                     <div className="row">
-                                                        <div className="col">
-                                                            <button name="08:00" type="button" className="btn btn-primary" onClick={HandleClick}>
-                                                                08:00
-                                                            </button>
-                                                            </div>
-                                                        <div className="col">
-                                                            <button name="09:00" type="button" className="btn btn-primary" onClick={HandleClick}>
-                                                                09:00
-                                                            </button>
-                                                            </div>
-                                                        <div className="col">
-                                                            <button name="10:00" type="button" className="btn btn-primary" onClick={HandleClick}>
-                                                                10:00
-                                                            </button>
-                                                            </div>
-                                                        <div className="col">
-                                                            <button name="11:00" type="button" className="btn btn-primary" onClick={HandleClick}>
-                                                                11:00
-                                                            </button>
-                                                            </div>
-                                                        <div className="col">
-                                                            <button name="12:00" type="button" className="btn btn-primary" onClick={HandleClick}>
-                                                                12:00
-                                                            </button>
-                                                            </div>
-                                                    </div>
-                                                </div>
-                                                <div className="container_grid_horarios">
-                                                    <div className="row">
-                                                        <div className="col">
-                                                            <button name="16:00" type="button" className="btn btn-primary" onClick={HandleClick}>
-                                                                16:00
-                                                            </button>
-                                                            </div>
-                                                        <div className="col">
-                                                            <button name="17:00" type="button" className="btn btn-primary" onClick={HandleClick}>
-                                                                17:00
-                                                            </button>
-                                                            </div>
-                                                        <div className="col">
-                                                            <button name="18:00" type="button" className="btn btn-primary" onClick={HandleClick}>
-                                                                18:00
-                                                            </button>
-                                                            </div>
-                                                        <div className="col">
-                                                            <button name="19:00" type="button" className="btn btn-primary" onClick={HandleClick}>
-                                                                19:00
-                                                            </button>
-                                                            </div>
-                                                        <div className="col">
-                                                            <button name="20:00" type="button" className="btn btn-primary" onClick={HandleClick}>
-                                                                20:00
-                                                            </button>
-                                                            </div>
+                                                    {turnos.map(elemento =>(
+                                                         <div className="col">
+                                                         <button name={elemento.horario} type="button" className="btn btn-primary" disabled = {!suscripcion} onClick={HandleClick}>
+                                                            {elemento.horario}
+                                                         </button>
+                                                         </div>
+                                                            ))} 
                                                     </div>
                                                 </div>
                                             </div>
@@ -198,6 +157,7 @@ function Turnos() {
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

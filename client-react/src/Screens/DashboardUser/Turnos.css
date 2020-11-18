@@ -25,3 +25,15 @@
 .container_grid_horarios {
   margin: 15px;
 }
+
+.sus_activa {
+  color: #40d06f;
+  font-size: x-large;
+}
+.sus_inactiva {
+  color: #ff584b;
+  font-size: x-large;
+}
+.nav__bienvenida {
+  margin-bottom: 10px;
+}

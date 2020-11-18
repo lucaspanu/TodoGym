@@ -48,8 +48,8 @@ function Dashboard() {
             <button className='btn_clases_btn btn_clases-btn'>Nueva Clase</button>
         </Link>
             {/* Tabla de Clases */}
-        <Table striped bordered hover responsive variant="dark">
-        <thead>
+        <Table  bordered hover responsive >
+        <thead className='thead-dark'>
     <tr>
       <th>Titulo</th>
       <th>Descripcion</th>
@@ -66,26 +66,10 @@ function Dashboard() {
   <td>{elemento.descripcion}</td>
   <td>{elemento.horarios}</td>
   <td>{elemento.cupos}</td>
+  <button>Borrar</button>
   </tr>
                     ))}
-    {/* <tr>
-      <td>1</td>
-      {Array.from({ length: 3 }).map((_, index) => (
-        <td key={index}>Table cell {index}</td>
-      ))}
-    </tr>
-    <tr>
-      <td>2</td>
-      {Array.from({ length: 3 }).map((_, index) => (
-        <td key={index}>Table cell {index}</td>
-      ))}
-    </tr>
-    <tr>
-      <td>3</td>
-      {Array.from({ length: 3 }).map((_, index) => (
-        <td key={index}>Table cell {index}</td>
-      ))}
-    </tr> */}
+
   </tbody>
 </Table>
 <Container>

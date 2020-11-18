@@ -37,14 +37,16 @@ function AddTurnos() {
     
     //Handle change from inputs
     const handleChange = text => e => {
+      if (e.target.value != text ) {
         setFormData({ ...formData, [text]: e.target.value });
+        console.log(text, e.target.value)
+      }else{
+        setFormData({ ...formData, [text]: null });
+      }
       };
     
       //submit data to backend
       const handleSubmit = e => {
-        e.preventDefault();
-        console.log(`horario: ${horario}`)
-        console.log(clase)
         if (horario && clase) {
             setFormData({ ...formData});
             axios.post(`${process.env.REACT_APP_API_URL}/turno`, {
@@ -89,31 +91,35 @@ function AddTurnos() {
             >
               <div className='mx-auto max-w-xs relative '>
                 <select
+                id='clase'
                 name='clase'
                 className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5'
                 placeholder='clases'
-                value={clase}
                 onChange={handleChange('clase')}>
+                  <option >clase</option>
                     {clases.map(elemento =>(
-                            <option key={elemento.id} value={clase = elemento.titulo.toString()}>{elemento.titulo}</option>
+                            <option key={elemento.id} value={elemento.titulo}>{elemento.titulo}</option>
                     ))}
                 </select>
                 <select 
+                id='horario'
                 name='horario'
                 className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5'
                 placeholder='horario'
                 onChange={handleChange('horario')}
-                value={horario}>
-                    <option value={horario = '08:00'}>08:00</option> 
-                    <option value={horario = '09:00'}>09:00</option>
-                    <option value={horario = '10:00'}>10:00</option>
-                    <option value={horario = '11:00'}>11:00</option>
-                    <option value={horario = '12:00'}>12:00</option>
-                    <option value={horario = '16:00'}>16:00</option>
-                    <option value={horario = '17:00'}>17:00</option>
-                    <option value={horario = '18:00'}>18:00</option>
-                    <option value={horario = '19:00'}>19:00</option>
-                    <option value={horario = '20:00'}>20:00</option>
+                label='asdasd'
+                >
+                  <option >horario</option>
+                    <option value='08:00'>08:00</option> 
+                    <option value='09:00'>09:00</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='20:00'>20:00</option>
                 </select>
                 <button
                   type='submit'
