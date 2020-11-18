@@ -62,12 +62,16 @@ function Dashboard() {
         <>
         <Navbar/>
         <ToastContainer />
-        
+        <div className='min-h-screen bg-gray-100 text-gray-900'>
+            {/* <div className='max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1'> */}
+            {/* <div className='mt-12 flex flex-col items-center'> */}
+         <div className="dashboard_general">
+
         <div className ='dashboard_admin'>
         <h1>Dashboard Administrador</h1>
         </div>
 
-        <div className="container">
+        <div className="container  ">
 <div className="pefil_dashboard">
 
         <h2>Perfil</h2>
@@ -120,6 +124,10 @@ function Dashboard() {
   </Row>
 </Container>
 
+</div>
+</div>
+{/* </div> */}
+{/* </div> */}
 </div>
 </>
     )

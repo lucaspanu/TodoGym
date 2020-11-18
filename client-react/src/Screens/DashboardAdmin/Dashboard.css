@@ -7,8 +7,15 @@
 
 .dashboard_admin h1 {
   margin: 20px 0 35px 0;
+  color: #ff584b;
   font-size: 4vh;
   text-align: center;
+}
+
+.dashboar_todo {
+  justify-content: center;
+  align-items: center;
+  margin-left: 400px;
 }
 .pefil_dashboard {
   display: flex;
