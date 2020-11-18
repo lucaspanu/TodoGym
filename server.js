@@ -34,11 +34,13 @@ const authRouter = require('./routes/auth.route')
 const userRouter = require('./routes/user.route')
 const stripeRouter = require('./routes/stripe.route')
 const adminRouter = require('./routes/admin.route')
+const turnosRouter = require('./routes/turno.route')
 
 // Use Routes
 app.use('/api', authRouter)
 app.use('/api', userRouter)
 app.use('/api', adminRouter)
+app.use('/api', turnosRouter)
 //stripe route
 app.use('/api', stripeRouter)
 
