@@ -58,6 +58,8 @@ function Dashboard() {
       });
     };
 
+    var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+
     return (
         <>
         <Navbar/>
@@ -79,23 +81,28 @@ function Dashboard() {
     <span>Email:    {email}</span>
     <span>Rol:    {role}</span>
     <span>Fecha Ingreso:    {createdAt}</span>
-    <span>Fecha Modificacion:    {updatedAt}</span>
+    <span>Ultima Modificacion:    {updatedAt}</span>
 </div>
 
           <div className="dashboard_clases-head">
         <h2>Clases</h2>
-        <Link className='btn_clases' to='/admin/clases'>
+        {/* <Link className='btn_clases' to='/admin/clases'>
             <button className='btn_clases_btn btn_clases-btn'>Nueva Clase</button>
-        </Link>
+        </Link> */}
           </div>
             {/* Tabla de Clases */}
-        <Table  bordered hover responsive >
+        <Table striped  bordered hover responsive >
         <thead className='thead-dark'>
     <tr>
       <th>Titulo</th>
       <th>Descripcion</th>
       <th>Fecha</th>
       <th>Cupos</th>
+      <th className='td_nueva_clase'>
+        <Link to='/admin/clases' className='nueva_clase'>
+          Nueva Clase
+        </Link>
+      </th>
     </tr>
   </thead>
   
@@ -108,7 +115,10 @@ function Dashboard() {
   <td>{elemento.fecha}</td>
   <td>{elemento.cupos}</td>
   <td className='td_borrar'>
-    <button className='btn_borrar' value={elemento.id} onClick={handleChange(`${elemento._id}`)}>Borrar</button>
+    <button className='btn_borrar' value={elemento.id} onClick={handleChange(`${elemento._id}`)}>
+       <i class="fas fa-trash-alt"></i>
+      <span>  Borrar</span>
+      </button>
     </td>
   </tr>
                     ))}
