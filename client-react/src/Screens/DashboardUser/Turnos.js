@@ -13,6 +13,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { forEach } from 'lodash';
 
+import Table from 'react-bootstrap/Table'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
 function Turnos() {
     const [formData, setFormData] = useState({
         name: '',
@@ -48,11 +52,37 @@ function Turnos() {
       )
       .then(res => {
         toast.success('Turno agregado exitosamente');
+        setTimeout(function() {
+            window.location.href = "/users/turnos";
+        }, 2500);
       })
       .catch(err => {
         console.log(err.response);
       });
     }
+
+    const handleBorrar = text => e => {
+        console.log(text);
+        e.preventDefault();
+        setFormData({ ...formData });
+        axios
+          .put(
+            `${process.env.REACT_APP_API_URL}/turno/edit/${text}`,
+            {
+                usuario: "",
+                fecha: ""
+            }
+          )
+          .then(res => {
+            toast.success('Turno Borrado exitosamente');
+            setTimeout(function() {
+                window.location.href = "/users/turnos";
+            }, 2500);
+          })
+          .catch(err => {
+            console.log(err.response);
+          });
+        }
 
     //Carga de Datos
     useEffect(() => {
@@ -97,18 +127,42 @@ function Turnos() {
                     <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
                         <div className="mt-12 flex flex-col items-center">
                             <h1 className="text-2xl xl:text-3xl font-extrabold">Bienvenido</h1>
-                            <div className="nav__bienvenida">
+                            <div className="nav__bienvenida-turnos">
                                 <span >{name}</span>
                             </div>
-                            <div className="text-2xl xl:text-3xl font-extrabold">
+                            <div className="text-2xl xl:text-3xl font-extrabold ">
                                 <h3 className="text-2xl xl:text-3xl font-extrabold">Estado de Suscripcion:</h3>
                             </div>
-                            <div className="nav__bienvenida">
+                            <div className="nav__bienvenida-turnos">
                             <span className={suscripcion?'sus_activa' : 'sus_inactiva'}>{suscripcion?'Activa' : 'Inactiva'}</span>
                             </div>
+
+                            <Table  bordered hover responsive >
+        <thead className='thead-dark'>
+    <tr>
+      <th>Clase</th>
+      <th>Fecha</th>
+      <th>Horario</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {turnos.filter(e => e.usuario == `${isAuth()._id}`).map(elemento =>(
+  <tr>
+      <td>{elemento.clase}</td>
+      <td>{elemento.fecha}</td>
+      <td>{elemento.horario}</td>
+      <td className='td_borrar'>
+        <button className='btn_borrar' value={elemento.id} onClick={handleBorrar(elemento._id)}>Borrar</button>
+      </td>
+  </tr>
+                    ))}
+
+  </tbody>
+</Table>
                         </div>
                     </div>
-                    <div className="flex-1 bg-indigo-100 text-center  lg:flex">
+                    <div className="flex-1 bg-indigo-100 text-center grid_horarios-nose   lg:flex">
                         <div className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat">
                     <form >
 

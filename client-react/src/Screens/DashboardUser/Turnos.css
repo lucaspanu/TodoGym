@@ -21,6 +21,10 @@
 .grid_horarios h1 {
   color: #0f4c75;
 }
+.grid_horarios-nose {
+  display: flex;
+  justify-content: center;
+}
 
 .container_grid_horarios {
   margin: 15px;
@@ -34,8 +38,8 @@
   color: #ff584b;
   font-size: x-large;
 }
-.nav__bienvenida {
-  margin-bottom: 10px;
+.nav__bienvenida-turnos {
+  margin-bottom: 50px;
 }
 
 @media screen and (max-width: 1040px) {
