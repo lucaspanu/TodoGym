@@ -8,11 +8,16 @@ import axios from 'axios';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import { isAuth, getCookie, signout } from '../../helpers/auth';
 
 function Dashboard() {
     const [formData, setFormData] = useState({
         clases:[],
-        idclase: ''
+        name: '',
+        email: '',
+        role: '',
+        createdAt: '',
+        updatedAt: ''
     });
 
     useEffect(() => {
@@ -20,19 +25,22 @@ function Dashboard() {
       }, []);
     
       const loadClases = () => {
-        axios.get(`${process.env.REACT_APP_API_URL}/clases`,{clases})
-            .then((res) => {
-                setFormData({
-                    ...formData,
-                    clases: res.data
-                });
-                
-            })
+        const token = getCookie('token');
+        axios.all([
+        axios.get(`${process.env.REACT_APP_API_URL}/clases`,{clases}),
+        axios.get(`${process.env.REACT_APP_API_URL}/user/${isAuth()._id}`, {
+          headers: { Authorization: `Bearer ${token}` }
+          }),
+        ])
+        .then(axios.spread((req, res,tur) => {
+          const { name, email, role, createdAt, updatedAt} = res.data;
+          setFormData({ ...formData, name, email,createdAt, updatedAt, role, clases: req.data})
+            }))
             .catch((err) => {
               console.log(err);
         });
     };
-    var {clases} = formData;
+    var {name,email, role,createdAt, updatedAt ,clases} = formData;
 
     const handleChange = text => e => {
       console.log(text)
@@ -57,13 +65,25 @@ function Dashboard() {
         
         <div className ='dashboard_admin'>
         <h1>Dashboard Administrador</h1>
-        <h2>Clases</h2>
         </div>
 
         <div className="container">
+<div className="pefil_dashboard">
+
+        <h2>Perfil</h2>
+    <span>Nombre:    {name}</span>
+    <span>Email:    {email}</span>
+    <span>Rol:    {role}</span>
+    <span>Fecha Ingreso:    {createdAt}</span>
+    <span>Fecha Modificacion:    {updatedAt}</span>
+</div>
+
+          <div className="dashboard_clases-head">
+        <h2>Clases</h2>
         <Link className='btn_clases' to='/admin/clases'>
             <button className='btn_clases_btn btn_clases-btn'>Nueva Clase</button>
         </Link>
+          </div>
             {/* Tabla de Clases */}
         <Table  bordered hover responsive >
         <thead className='thead-dark'>
@@ -91,6 +111,7 @@ function Dashboard() {
 
   </tbody>
 </Table>
+<h3>Otras funciones:</h3>
 <Container>
 <Row>
     <Col><Link to='/admin/turnos'><button className='btn_clases_btn btn_clases-btn'>Nuevo Turno</button></Link></Col>
