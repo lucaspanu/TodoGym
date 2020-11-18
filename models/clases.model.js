@@ -2,26 +2,26 @@ const mongoose = require('mongoose');
 
 const ClasesSchema = new mongoose.Schema
 ({
-    Titulo:
+    titulo:
     {
         type: String,
         required: true
     },
-    Descripcion: 
+    descripcion: 
     {
         type: String,
         required: true,
         trim: true
     },
-    Horarios:
+    horarios:
     {
         type: Date,
         required: true
     },
-    Estado: {
+    estado: {
         type: Boolean,
         default: true
     },
 })
 
-module.exports = Clase = mongoose.model('clases', ClasesSchema);
+module.exports = Clase = mongoose.model('Clase', ClasesSchema);
