@@ -7,11 +7,11 @@ function AddClases() {
     const [formData, setFormData] = useState({
         titulo: '',
         descripcion: '',
-        horarios: '',
+        fecha: '',
         cupos: ''
       });
     
-      const { titulo, descripcion, horarios, cupos } = formData;
+      const { titulo, descripcion, fecha, cupos } = formData;
       //Handle change from inputs
       const handleChange = text => e => {
         setFormData({ ...formData, [text]: e.target.value });
@@ -20,12 +20,12 @@ function AddClases() {
       //submit data to backend
       const handleSubmit = e => {
         e.preventDefault();
-        if (titulo && descripcion && horarios && cupos) {
+        if (titulo && descripcion && fecha && cupos) {
             setFormData({ ...formData});
             axios.post(`${process.env.REACT_APP_API_URL}/admin/addclase`, {
                 titulo,
                 descripcion,
-                horarios,
+                fecha,
                 cupos
               })
               .then(res => {
@@ -33,7 +33,7 @@ function AddClases() {
                   ...formData,
                   titulo: '',
                   descripcion: '',
-                  horarios: '',
+                  fecha: '',
                   cupos: ''
                 });
     
@@ -44,7 +44,7 @@ function AddClases() {
                   ...formData,
                   titulo: '',
                   descripcion: '',
-                  horarios: '',
+                  fecha: '',
                   cupos: ''
                 });
                 console.log(err.response);
@@ -89,8 +89,8 @@ function AddClases() {
                   className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5'
                   type='date'
                   placeholder='Cantidad de Turnos'
-                  onChange={handleChange('horarios')}
-                  value={horarios}
+                  onChange={handleChange('fecha')}
+                  value={fecha}
                 />
                 <input
                   className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5'

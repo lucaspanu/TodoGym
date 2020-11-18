@@ -18,30 +18,24 @@ function Turnos() {
         name: '',
         suscripcion: '',
         clases:[],
-        turnos:[]
+        turnos:[],
+        clase: ''
     });
-    var claseSelec;
 
     //Fechas
     const [startDate, setStartDate] = useState(new Date());
     
-    var handleDateChange =
-        date => setStartDate(date)
+    var handleDateChange = date => setStartDate(date)
 
     registerLocale("es", es)
     
     const fiveDaysFromNow = new Date()
     fiveDaysFromNow.setDate(fiveDaysFromNow.getDate() +5)
-    const clasday = `${startDate.getDate()}/${startDate.getMonth()}/${startDate.getFullYear()}`
-    //Switches
-    const onRadioChange = e => {
-        console.log(e.target.value)
-        claseSelec = e.target.value
-    };
 
+    
     //evneto click
     const HandleClick = e => {
-        alert(`${e.target.name} ${startDate.getDate()}/${startDate.getMonth()}/${startDate.getFullYear()}`)
+        alert(`${e.target.name} ${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDate()}`)
     }
 
     //Carga de Datos
@@ -67,14 +61,23 @@ function Turnos() {
           });
     };
 
-    const { name, suscripcion, clases, turnos } = formData;
+    const { name, suscripcion, clases, turnos, clase } = formData;
+
+    const handleChange = text => e => {
+        if (e.target.value != text ) {
+          setFormData({ ...formData, [text]: e.target.value });
+          console.log(text, e.target.value)
+        }else{
+          setFormData({ ...formData, [text]: null });
+        }
+        };
     
     return (
         <div>
             <Navbar/>
             <ToastContainer/>
             <div className='min-h-screen bg-gray-100 text-gray-900 flex justify-center'>
-                <div className="max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+                <div className="max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1 contenedor_turnos">
                     <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
                         <div className="mt-12 flex flex-col items-center">
                             <h1 className="text-2xl xl:text-3xl font-extrabold">Bienvenido</h1>
@@ -89,9 +92,9 @@ function Turnos() {
                             </div>
                         </div>
                     </div>
-                    <form action="">
-                    <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
+                    <div className="flex-1 bg-indigo-100 text-center  lg:flex">
                         <div className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat">
+                    <form >
 
                             <div className="container-fluid">
                             <div className='mt-12 flex flex-col items-center'>
@@ -113,21 +116,17 @@ function Turnos() {
                                     <div className='mt-12 flex flex-col items-center'>
                                         <div className="datepicker_title">
                                         <h1 className="text-2xl xl:text-3xl font-extrabold" >Selecciona la Clase</h1>
-                                            {/* <Checklist /> */}
-                                            <div className="custom-control custom-checkbox ">
-                                            {clases.map(elemento =>(
-                                                <div key={elemento.titulo} className="mb-3">
-                                                <Form.Check                                                 
-                                                  onChange={onRadioChange}
-                                                  onClick={onRadioChange}
-                                                  type="checkbox"
-                                                  id={elemento.id}
-                                                  value={elemento.titulo}
-                                                  label={elemento.titulo}
-                                                />
-                                              </div>
-                                            ))}                                                
-                                            </div>
+                                            <select
+                                            id='clase'
+                                            name='clase'
+                                            className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5'
+                                            placeholder='clases'
+                                            onChange={handleChange('clase')}>
+                                              <option hidden>clase</option>
+                                                {clases.filter(e => e.fecha == `${startDate.getFullYear()}-${startDate.getMonth()+1}-${startDate.getDate()}`).map(elemento =>(
+                                                        <option key={elemento.id} value={elemento.titulo}>{elemento.titulo}</option>
+                                                ))}
+                                            </select>                                            
                                         </div>
                                     </div>
                                 </div>
@@ -140,13 +139,13 @@ function Turnos() {
                                             <div className="container -fluid">
                                                 <div className="container_grid_horarios">
                                                     <div className="row">
-                                                    {turnos.map(elemento =>(
+                                                    {turnos.filter(e => e.clase == clase).map(elemento =>(
                                                          <div className="col">
                                                          <button name={elemento.horario} type="button" className="btn btn-primary" disabled = {!suscripcion} onClick={HandleClick}>
                                                             {elemento.horario}
                                                          </button>
                                                          </div>
-                                                            ))} 
+                                                            ))}
                                                     </div>
                                                 </div>
                                             </div>
@@ -155,9 +154,9 @@ function Turnos() {
                                 </div>
                             </div>
                             </div>
+                    </form>
                         </div>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>

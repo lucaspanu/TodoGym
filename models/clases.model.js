@@ -13,7 +13,7 @@ const ClasesSchema = new mongoose.Schema
         required: true,
         trim: true
     },
-    horarios:
+    fecha:
     {
         type: String,
         required: true

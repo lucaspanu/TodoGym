@@ -96,7 +96,7 @@ function AddTurnos() {
                 className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5'
                 placeholder='clases'
                 onChange={handleChange('clase')}>
-                  <option >clase</option>
+                  <option hidden>clase</option>
                     {clases.map(elemento =>(
                             <option key={elemento.id} value={elemento.titulo}>{elemento.titulo}</option>
                     ))}
@@ -109,7 +109,7 @@ function AddTurnos() {
                 onChange={handleChange('horario')}
                 label='asdasd'
                 >
-                  <option >horario</option>
+                  <option hidden>horario</option>
                     <option value='08:00'>08:00</option> 
                     <option value='09:00'>09:00</option>
                     <option value='10:00'>10:00</option>

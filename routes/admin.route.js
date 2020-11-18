@@ -12,18 +12,30 @@ router.post('/admin/new',validRegister, adminRegisterController);
 //Clases
 // READ (ALL)
 router.get('/clases', (req, res) => {
-    Clase.find({})
+    const { fecha } = req.body; 
+
+    if (fecha != null) {
+      Clase.find({ fecha })
       .then((result) => {
         res.json(result);
       })
       .catch((err) => {
         res.status(500).json({ success: false, msg: `Something went wrong. ${err}` });
     });
+    } else {
+      Clase.find({})
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        res.status(500).json({ success: false, msg: `Something went wrong. ${err}` });
+    });
+    }
 });
 
 //Create
 router.post('/admin/addclase', (req, res) => {
-    const { titulo, descripcion, horarios, cupos } = req.body;
+    const { titulo, descripcion, fecha, cupos } = req.body;
     const errors = [];
     if (!titulo) {
       errors.push({ text: "Please Write a Title." });
@@ -36,7 +48,7 @@ router.post('/admin/addclase', (req, res) => {
         errors,
         titulo,
         descripcion,
-        horarios,
+        fecha,
         cupos
       });
     } else {
@@ -44,7 +56,7 @@ router.post('/admin/addclase', (req, res) => {
     const clase = new Clase({
         titulo,
         descripcion,
-        horarios,
+        fecha,
         cupos
     });
   
