@@ -34,8 +34,24 @@ function Turnos() {
 
     
     //evneto click
-    const HandleClick = e => {
-        alert(`${e.target.name} ${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDate()}`)
+    const handleClick = text => e => {
+    console.log(text);
+    e.preventDefault();
+    setFormData({ ...formData });
+    axios
+      .put(
+        `${process.env.REACT_APP_API_URL}/turno/edit/${text}`,
+        {
+            usuario: `${isAuth()._id}`,
+            fecha: `${startDate.getFullYear()}-${startDate.getMonth()+1}-${startDate.getDate()}`
+        }
+      )
+      .then(res => {
+        toast.success('Turno agregado exitosamente');
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
     }
 
     //Carga de Datos
@@ -141,11 +157,12 @@ function Turnos() {
                                                     <div className="row">
                                                     {turnos.filter(e => e.clase == clase).map(elemento =>(
                                                          <div className="col">
-                                                         <button name={elemento.horario} type="button" className="btn btn-primary" disabled = {!suscripcion} onClick={HandleClick}>
+                                                         <button name={elemento.horario} type="button" className="btn btn-primary" disabled = {!suscripcion} onClick={handleClick(elemento._id)} 
+                                                         disabled={elemento.usuario==`${isAuth()._id}`? true : false}>
                                                             {elemento.horario}
                                                          </button>
                                                          </div>
-                                                            ))}
+                                                    ))}
                                                     </div>
                                                 </div>
                                             </div>

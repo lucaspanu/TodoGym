@@ -88,4 +88,24 @@ router.get('/turno/:id', function(req, res) {
 
 });
 
+router.put('/turno/edit/:id',function(req, res) {
+      // console.log('UPDATE USER - req.user', req.user, 'UPDATE DATA', req.body);
+      const { usuario , fecha} = req.body;
+      const turnoId = req.params.id;
+      
+      Turno.findByIdAndUpdate(turnoId, {usuario, fecha}, {new: true}, (err, turno) => {
+
+        if (err) {
+           return res.status(400).json({err}) 
+        }
+        if (!turno) {
+            return res.status(400).json({
+                error: 'No se encontro el Turno'
+            });
+        }
+
+        res.json({mensaje: 'Turno Exitoso'})
+      });
+});
+
 module.exports = router;
